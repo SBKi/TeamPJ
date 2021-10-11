@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+
+	<select id="getList" resultType="Product"	parameterType="java.util.Map">
+		select * from product limit #{startNo},#{pageSize}
+	</select>
+	
+	<select id="getOne" resultType="Product" parameterType="int">
+		select * from product where product_no=#{product_no}
+	</select>
+	
+	<select id="getCount" resultType="int" >
+		select count(product_like) from product where product_no=#{product_no}
+	</select>
+	
+	<insert id="insert" parameterType="Product">
+		insert into product (product_category,product_name,product_content,product_price,product_img1,product_img2,product_img3,product_seller,product_buyer)
+		 values (#{product_category},#{product_name},#{product_content},#{product_price},#{product_img1},#{product_img2},#{product_img3},#{product_seller},#{product_buyer})
+	</insert>
+	
+	<update id="update" parameterType="Product">
+		update product set product_name=#{product_name}, product_price=#{product_price}, product_img1=#{product_img1}, product_img2=#{product_img2}, product_img3=#{product_img3}, product_status=#{product_status}
+		where product_no=#{product_no}
+	</update>
+	
+	<update id="update_like" parameterType="Product">
+		update product set product_like= 1 where product_no=#{product_no}
+	</update>
+	
+	<update id="delete_like" parameterType="Product">
+		update product set product_like= 0 where product_no=#{product_no}
+	</update>
+	
+	<select id="getLike" resultType="Product"	parameterType="java.util.Map">
+		select * from product limit #{startNo},#{pageSize} where product_like= 1
+	</select>
+	
+	<delete id="delete" parameterType="java.util.Map">
+		delete from product where product_no=#{product_no} and product_seller=#{product_seller}
+	</delete>
+	
+	<update id="readCount" parameterType="int">
+		update product set product_readcount = product_readcount +1 where product_no=#{product_no}
+	</update>
+
+
+</mapper>
