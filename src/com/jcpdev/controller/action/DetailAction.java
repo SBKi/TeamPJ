@@ -16,7 +16,6 @@ public class DetailAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		//글 상세보기
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		int pageNo = Integer.parseInt(request.getParameter("page"));
 
