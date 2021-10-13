@@ -7,7 +7,7 @@
  
 <section class="home-main-section">
 	<div class="row">
-		<div class="card col-md-3 col-sm-6" onclick="TestFuc()">
+		<div class="card col-md-3 col-sm-6" onclick="location.href='detail.do'">
 			<img src="http://placehold.it/250x100" class="card-img-top" alt="...">
 			<div class="card-body">
 				<h5 class="card-title">Card title</h5>

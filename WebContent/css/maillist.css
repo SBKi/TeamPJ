@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.sender-wrap {
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+.sender-wrap p {
+	font-size: 0.8em;
+}
+
+.sender-wrap span {
+	margin-left: 10px;
+	font-size: 0.7em;
+}
+
+.getter-wrap span {
+	margin-right: 10px;
+	font-size: 0.7em;
+}
+
+.getter-wrap {
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+.mail-chat {
+	border: 1px solid lightgray;
+	border-radius: 4px;
+	padding: 2em;
+	margin-bottom: 1em;
+}
+.btn-success-cus{
+	width: 50%;
+}
+.btn-danger-cus {
+	width: 50%;
+}

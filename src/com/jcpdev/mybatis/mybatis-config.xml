@@ -11,7 +11,8 @@
   	<typeAlias type="com.jcpdev.dto.Product" alias="Product"/>
   	<typeAlias type="com.jcpdev.dto.Category" alias="Category"/>
   	<typeAlias type="com.jcpdev.dto.Favorites" alias="Favorites"/>
-  	<typeAlias type="com.jcpdev.dto.mail" alias="Mail"/>
+  	<typeAlias type="com.jcpdev.dto.Mail" alias="Mail"/>
+  	<typeAlias type="com.jcpdev.dto.Gallery" alias="Gallery"/>
   </typeAliases>
   
   <!--  db 연결정보 -->
@@ -30,9 +31,11 @@
   <!-- JDBC로 처리하는 상당부분의 코드와 파라미터 설정 및 결과 매핑 해준다.   -->
   <mappers>
   	<!-- 실행할 SQL 쿼리 저장한 파일. mapper파일위치와 파일명 오류나지 않도록 확인!! -->
-    <mapper resource="com/jcpdev/mybatis/freeboard.xml"/>
-    <mapper resource="com/jcpdev/mybatis/comment.xml"/>
+    <mapper resource="com/jcpdev/mybatis/member.xml"/>
+    <mapper resource="com/jcpdev/mybatis/product.xml"/>
     <mapper resource="com/jcpdev/mybatis/gallery.xml"/>
+    <mapper resource="com/jcpdev/mybatis/favorites.xml"/>
+    <mapper resource="com/jcpdev/mybatis/category.xml"/>
     <!-- sql mapper 파일은 여러개 사용될 수 있습니다. -->
   </mappers>
 </configuration>

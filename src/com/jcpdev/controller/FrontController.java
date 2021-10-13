@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
-
+import com.jcpdev.controller.action.GalleryListAction;
+import com.jcpdev.controller.action.GalleryRegistAction;
+import com.jcpdev.controller.action.InsertAction;
+import com.jcpdev.controller.action.LoginAction;
+import com.jcpdev.controller.action.LogoutAction;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -27,59 +31,69 @@ public class FrontController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 	
+	//요청Method 구별없이 실행 -> doGet() 또는 doPost()메소드 실행내용 있으면 실행.
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//콘솔 출력- 테스트용
+	//	System.out.println(request.getContextPath());
+	//	System.out.println(request.getServletPath());
 		ActionForward forward=null; 
 		String spath = request.getServletPath();
 		String path="index.jsp";
 		String url ="./";   //또는 request.getContextPath();
 		
-		/*
-		if(spath.equals("/list.do")) {
-			Action action = new ListAction();
-			forward = action.execute(request, response);      //여기에 들어갈 코드가 많습니다.-> Action 구현 클래스로 변경.
-			forward.setUrl("community/list.jsp");
-		}else if(spath.equals("/login.do")) {
-			path = "login.jsp";
-			forward = new ActionForward(false,path); 
-		}else if(spath.equals("/insert.do")) {
-			path ="community/insert.jsp";
-			forward = new ActionForward(false,path); 
-		}else if(spath.equals("/detail.do")) {
-			Action action = new DetailAction();
-			forward = action.execute(request, response);
-		}else if(spath.equals("/save.do")) {
+		if(spath.equals("/sign_up.do")) {
 			Action action = new InsertAction();
-			forward = action.execute(request, response);
-			url = "list.do";
-			forward.setUrl(url);
-		}else if(spath.equals("/update.do")) {
-			Action action = new UpdateAction();
-			forward = action.execute(request, response);
-		}else if(spath.equals("/modify.do")) {
-			Action action = new ModifyAction();
-			forward = action.execute(request, response);
-		}else if(spath.equals("/delete.do")) {
-			Action action = new DeleteAction();
-			forward = action.execute(request, response);
-		}else if(spath.equals("/comment.do")) {
-			Action action = new CommentAction();
 			forward = action.execute(request, response);
 		}else if(spath.equals("/loginAction.do")) {
 			Action action = new LoginAction();
 			forward = action.execute(request, response);
+		}else if(spath.equals("/login.do")) {
+			path = "login.jsp";
+			forward = new ActionForward(false,path);
 		}else if(spath.equals("/logout.do")) {
 			Action action = new LogoutAction();
 			forward = action.execute(request, response);
-		}else if(spath.equals("/gallery.do")){
-			Action action = new GalleryListAction();
-			forward = action.execute(request, response);
-		}else if(spath.equals("/regist.do")){
-			Action action = new GalleryRegistAction();
-			forward = action.execute(request, response);
+		}else if(spath.equals("/join.do")) {
+			path ="sign_up.jsp";
+			forward = new ActionForward(false,path); 
+		}else if(spath.equals("/find_id.do")) {
+			path ="./community/find_id.jsp";
+			forward = new ActionForward(false,path); 
+		}else if(spath.equals("/find_password.do")) {
+			path ="./community/find_password.jsp";
+			forward = new ActionForward(false,path); 
+		}else if(spath.equals("/index.do")) {
+			path ="index.jsp";
+			forward = new ActionForward(false,path); 
+		}else if(spath.equals("/login_complete.do")) {
+			path = "./community/sign_complete.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/mypage.do")) {
+			path = "./view/mypage.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/my_product.do")) {
+			path = "./view/my_product.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/purchaselist.do")) {
+			path = "./view/purchaselist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/saleslist.do")) {
+			path = "./view/saleslist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/favoriteslist.do")) {
+			path = "./view/favoriteslist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/maillist.do")) {
+			path = "./view/maillist.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/productAdd.do")) {
+			path = "./view/productAdd.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/detail.do")) {
+			path = "./view/detail.jsp";
+			forward = new ActionForward(false,path);
 		}
-		*/
-		
 		//이 시점에서 forward 에 isRedirect 와 url 값이 저장되었으면 ok!
 		if(forward.isRedirect()) {   //타입 boolean 일때는 getXXX 아니고 isXXX 입니다.
 			response.sendRedirect(forward.getUrl());
@@ -87,7 +101,7 @@ public class FrontController extends HttpServlet {
 			RequestDispatcher rd 
 			= request.getRequestDispatcher(forward.getUrl());
 			rd.forward(request, response);
-		}//끝  감사합니다!
+		}
 		
 	}
 

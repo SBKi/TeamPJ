@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-html, body {
+.html, body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
@@ -15,6 +15,7 @@ html, body {
 	flex-direction: unset;
 	right: 0;
 	position: absolute;
+	display: flex;
 }
 
 .nav-item {
@@ -30,4 +31,34 @@ html, body {
 	height: 120px;
 	background-color: white;
 	box-shadow: 0 4px 4px -4px black;
+}
+.img_profile {
+	width: 42px;
+    height: 42px;
+    border-radius: 0.75rem;
+    margin: 10px;
+    cursor: pointer;
+}
+.chat_cnt {
+    min-width: 18px;
+    background-color: #0484f6;
+    border-radius: 50px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 18px;
+    position: absolute;
+    left: 48px;
+    top: 2px;
+}
+.chat_cnt1 {
+    border-radius: 50px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 18px;
+    left: 48px;
+    top: 2px;
 }

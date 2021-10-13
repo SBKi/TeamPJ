@@ -21,3 +21,80 @@
     border:none;
 	margin-bottom: 7em;
 }
+
+/* .mypage-section {
+	margin-top: 140px;
+	min-height: 100%;
+	
+}
+.sidenav {
+	margin-top: 120px;
+ 	height: 100%;
+ 	width: 300px;
+ 	position: fixed;
+ 	z-index: 1;
+ 	top: 0;
+ 	left: 0;
+	background-color: #FAFAFA;;
+  	overflow-x: hidden;
+}
+
+
+
+.floatwrap {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: auto;
+    margin: 0;
+    background: #fff;
+    border-left: 1px solid #fff;
+    z-index: 100;
+}
+.floatwrap .floatwing.fix {
+    float: none;
+    top: 0;
+    padding-top: 140px;
+    padding-left: 30px;
+    z-index: 6;
+    right: auto;
+    text-align: center;
+}
+.floatwrap .floatwing {
+    display: block;
+}
+.floatwrap .btn_toggle {
+    position: absolute;
+    left: -60px;
+    top: 299px;
+    width: 58px;
+    height: 58px;
+    cursor: pointer;
+    z-index: 1;
+}
+.floatwrap .btn_toggle > span > span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 58px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    -o-transform: scale(1.0);
+    transform: scale(1.0);
+}
+.floatwrap .btn_toggle {
+    position: absolute;
+    left: -60px;
+    top: 299px;
+    width: 58px;
+    height: 58px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+ */

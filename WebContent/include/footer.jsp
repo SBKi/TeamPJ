@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<footer class="container-fluid footer">
+<footer class="container-fluid navbar-fixed-bottom footer">
 	<div class="fotter-continer container">
 	<h3 class="fotter-text">Team3 Project</h3>
 	<hr>
@@ -9,5 +9,3 @@
 	</p>
 	</div>
 </footer>
-</body>
-</html>

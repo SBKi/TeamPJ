@@ -2,8 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="TeamProject">
-  
-  	
-  
-  </mapper>
+<!-- sql mapper   -->  
+<mapper namespace="Member"> <!-- namespace : 일종의 식별역할의 변수 -->
+
+	<insert id="insert" parameterType="Member" useGeneratedKeys="true"
+				keyColumn="idx" keyProperty="idx">
+		insert into member(member_id,member_password,member_name,member_tel,member_email,member_address)
+		values (#{member_id},#{member_password},#{member_name},#{member_tel},#{member_email},#{member_address})
+	</insert>
+	
+	<select id="loginCheck" parameterType="java.util.Map" resultType="Member">
+		select * from member where member_id = #{id} and member_password = #{password}  
+	</select>
+	
+	<insert id="fileupload" parameterType="Gallery">
+	insert into member(member_img) values(#{member_img}) where id = #{id}
+	</insert>
+</mapper>

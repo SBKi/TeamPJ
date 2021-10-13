@@ -5,11 +5,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="../css/header.css">
-<link rel="stylesheet" type="text/css" href="../css/mypage.css">
-<link rel="stylesheet" type="text/css" href="../css/detail.css">
-<link rel="stylesheet" type="text/css" href="../css/footer.css">
-<link rel="stylesheet" type="text/css" href="../css/detail-imgslice.css">
+<link rel="stylesheet" type="text/css" href="./css/header.css">
+<link rel="stylesheet" type="text/css" href="./css/mypage.css">
+<link rel="stylesheet" type="text/css" href="./css/footer.css">
+<link rel="stylesheet" type="text/css" href="./css/detail-imgslice.css">
+<link rel="stylesheet" type="text/css" href="./css/detail.css">
 
 <div class="mypage-main-section">
 	<div class="mypage-section1">
@@ -71,7 +71,8 @@
 			</div>
 			</article>
 			<article class="detail-other">
-			<p id="article-counts">관심 0 ∙ 조회 119</p></article>
+			<p class="article-counts">관심 0 ∙ 조회 119</p>
+			</article>
 			</div>
 			</div>
 		</div>
