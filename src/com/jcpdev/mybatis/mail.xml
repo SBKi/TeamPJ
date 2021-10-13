@@ -1,1 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper   -->  
+<mapper namespace="sendMails">
+	<!-- 쪽지 보내기(서버에 데이터 전송) -->
+	<insert id="insert" parameterType="mail">
+		insert into mail(mail_content,mail_sendid,mail_postid,mail_product_no)
+		values (#{mail_content},#{mail_sendid},#{mail_postid},#{mail_product_no})
+	</insert> 
+	
+	<!-- 보낸쪽지함  sendid-->
+	<select id="sendMails" parameterType="string" resultType="Mail">
+		select * from mail where mail_sendid = #{mail_sendid}
+	</select>
+	
+	 <!--  받은쪽지함 postid -->
+	<select id="postMails" parameterType="string" resultType="Mail">
+		select * from mail where mail_postid = #{mail_postid}
+	</select>				
+	
+	<!-- 쪽지함 갯수 -->
+	<select id="countMails" parameterType="String" resultType="int">
+		select count(mail_postid) from mail where mail_postid = #{mail_postid}
+	</select>			
+
+	<!-- 쪽지함에서 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from mail where mail_no= #{mail_no}
+	</delete>
+	
+	
+</mapper>
+

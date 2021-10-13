@@ -16,6 +16,14 @@
 		select count(product_like) from product where product_no=#{product_no}
 	</select>
 	
+	<select id="getBuy" resultType="Product" parameterType="java.util.Map">
+		select * from product where product_buyer=#{product_buyer} limit #{startNo},#{pageSize}
+	</select>
+	
+	<select id="getSell" resultType="Product" parameterType="java.util.Map">
+		select * from product where product_seller=#{product_seller} limit #{startNo},#{pageSize}
+	</select>
+	
 	<insert id="insert" parameterType="Product">
 		insert into product (product_category,product_name,product_content,product_price,product_img1,product_img2,product_img3,product_seller,product_buyer)
 		 values (#{product_category},#{product_name},#{product_content},#{product_price},#{product_img1},#{product_img2},#{product_img3},#{product_seller},#{product_buyer})

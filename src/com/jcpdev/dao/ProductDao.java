@@ -42,6 +42,21 @@ public class ProductDao {
 		return cnt;
 	}
 	
+	public List<Product> getBuy(Map<String, Integer> map){   // 구매내역 리스트 출력
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getBuy",map);
+		mapper.close();
+		return list;
+	}
+	
+	public List<Product> getSell(Map<String, Integer> map){   // 판매내역 리스트 출력
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getSell",map);
+		mapper.close();
+		return list;
+	}
 	
 	public void insert(Product dto) { // 상품 등록
 		SqlSession mapper = factory.openSession();
@@ -87,7 +102,7 @@ public class ProductDao {
 		return n;
 	}
 	
-	public void readCount(int idx) {
+	public void readCount(int idx) {	// 댓글 갯수
 		SqlSession mapper = factory.openSession();
 		mapper.update("product.readCount", idx);
 		mapper.commit();

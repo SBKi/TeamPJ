@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.footer {
+	background-color: #156E44;
+}
+
+.fotter-continer {
+	padding: 40px 0px;
+}
+
+.fotter-text {
+	color: white;
+}
+
+.madeby {
+	float: right;
+}

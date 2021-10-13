@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.card-text {
+	color: #198754;
+}
+
+.card-span {
+	float: right;
+}
+
+.home-main-section {
+	margin-top: 120px;
+	min-height: 100%;
+	padding: 106px 10em 10px 10em;
+}
+
+.col-12 {
+	margin-bottom: 3em;
+}
+.card {
+    border:none;
+	margin-bottom: 7em;
+}

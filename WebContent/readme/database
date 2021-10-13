@@ -1,0 +1,40 @@
+조장 : 김범진
+
+DB
+- member
+	아이디	:  member_id  (pk)
+	비밀번호	:	_password nu
+	이름	:	_name nu
+	전화번호 :	_tel nu
+	메일	:	_mail nu
+	주소	:	_address nu
+
+- product
+	상품번호 :	product_no (pk)
+	카테고리 :	_category (fk) -> category(no)
+	 " 이름	:	_name nu
+	내용(상품설명)	_content nu
+	가격	:	_price nu
+	상태	 on 상품판매중 re 예약 su 완료	: _status nu def on
+	이미지1,2,3			: _img1,2,3  1=nu 최소1개
+	판매자 id				: _sellerId nu  	(fk) -> member(id)
+	구매자 id	 (쪽지창에서 구매완료 변경)	: _buyerId 	(fk) -> member(id)
+	관심 수(like)			: _like def 0
+	날짜				: _date def current_time
+	조회수				: _readCount def 0
+
+-category
+	번호	:	_no (pk)
+	이름	:	_name nu
+- favorites
+	번호	:	favorites_no pk
+	물건번호	:	_product_no  fk -> product(no)
+	member id :	_member_id  fk -> member(id)
+- mail
+	번호	:	mail_no (pk) 
+	내용	:	_content nu
+	보내는사람id:	_sendID  fk -> member(id)
+	받는사람 id	_postID  fk -> member(id)
+	상품번호	:	_product_id fk -> product(no)
+	날짜	:	_date	def current_time
+

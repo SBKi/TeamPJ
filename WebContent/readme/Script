@@ -1,0 +1,53 @@
+create table member(
+	member_id varchar(20) primary key,
+	member_password varchar(20) not null,
+	member_name varchar(10) not null,
+	member_tel varchar(13) not null,
+	member_email varchar(50) not null,
+	member_address varchar(50) not null 
+);
+
+create table product(
+	product_no int primary key,
+	product_category int not null,	-- fk 
+	product_name varchar(30)not null,
+	product_content varchar(300)not null,
+	product_price int not null,
+	product_img1 varchar(50)not null,
+	product_img2 varchar(50),
+	product_img3 varchar(50),
+	product_seller varchar(20)not null,  -- fk
+	product_buyer varchar(20),			-- fk
+	product_like boolean default(0),
+	product_date datetime default CURRENT_TIMESTAMP,
+	product_readcount int default(0)
+);
+
+create table category(
+	category_no int auto_increment primary key,
+	category_name varchar(10) not null
+);
+
+create table favorites(
+	favorites_no int auto_increment primary key,
+	favorites_product_no int, -- fk
+	favorites_member_id varchar(20) -- fk
+);
+
+create table mail(
+	mail_no int auto_increment primary key,
+	mail_content varchar(50) not null,
+	mail_sendid varchar(20), -- fk
+	mail_postid varchar(20), -- fk
+	mail_product_no int, -- fk
+	mail_date datetime default current_timestamp
+);
+
+ALTER TABLE product ADD FOREIGN KEY (product_category) REFERENCES category(category_no);
+ALTER TABLE product ADD FOREIGN KEY (product_seller) REFERENCES member(member_id);
+ALTER TABLE product ADD FOREIGN KEY (product_buyer) REFERENCES member(member_id);
+ALTER TABLE favorites ADD FOREIGN KEY (favorites_product_no) REFERENCES product(product_no);
+ALTER TABLE favorites ADD FOREIGN KEY (favorites_member_id) REFERENCES  member(member_id);
+ALTER TABLE mail ADD FOREIGN KEY (mail_sendid) REFERENCES member(member_id);
+ALTER TABLE mail ADD FOREIGN KEY (mail_postid) REFERENCES member(member_id);
+ALTER TABLE mail ADD FOREIGN KEY (mail_product_no) REFERENCES  product(product_no);

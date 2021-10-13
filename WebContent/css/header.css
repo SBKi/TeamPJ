@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.searchbox {
+	width: 400px;
+	margin: 0px 20px;
+}
+
+.navbar-expand-lg .navbar-nav {
+	flex-direction: unset;
+	right: 0;
+	position: absolute;
+}
+
+.nav-item {
+	margin-left: 10px;
+}
+
+.img-logo {
+	vertical-align: text-bottom;
+	margin-bottom: 30px;
+}
+
+.header {
+	height: 120px;
+	background-color: white;
+	box-shadow: 0 4px 4px -4px black;
+}
