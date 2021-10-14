@@ -14,7 +14,7 @@ import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.PageDto;
 import com.jcpdev.dto.Product;
 
-public class ListAction implements Action {
+public class ProductListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -10,29 +10,29 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Product;
 
-public class DetailAction implements Action {
+public class ProductDetailAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		int idx = Integer.parseInt(request.getParameter("idx"));
+		int product_no = Integer.parseInt(request.getParameter("product_no"));
 		int pageNo = Integer.parseInt(request.getParameter("page"));
 
 		ProductDao dao = ProductDao.getInstance();
 		if(session.getAttribute("readIdx") !=null){
-			StringBuilder readIdx = (StringBuilder)session.getAttribute("readIdx");
-			boolean status = readIdx.toString().contains("/"+idx+"/");
+			StringBuilder readproduct_no = (StringBuilder)session.getAttribute("readproduct_no");
+			boolean status = readproduct_no.toString().contains("/"+product_no+"/");
 			if(!status) {
-				dao.readCount(idx);
-				readIdx.append(idx + "/");
+				dao.readCount(product_no);
+				readproduct_no.append(product_no + "/");
 			}
 		}else{
-			StringBuilder readIdx=new StringBuilder("/");
-			session.setAttribute("readIdx", readIdx);
+			StringBuilder readproduct_no=new StringBuilder("/");
+			session.setAttribute("readproduct_no", readproduct_no);
 		}
 		
-		Product bean = dao.getOne(idx);
+		Product bean = dao.getOne(product_no);
 		
 		request.setAttribute("page", pageNo);
 		request.setAttribute("bean", bean);

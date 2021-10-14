@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-	private int  product_no;
+	private int product_no;
 	private int product_category;
 	private String product_name;
 	private String product_content;
@@ -19,7 +19,7 @@ public class Product {
 	private String product_img2;
 	private String product_img3;
 	private String product_seller;
-	private String product_buyer;
+	private String product_buyer; 
 	private boolean product_like;
 	private Timestamp product_date;
 	private int  product_readcount;
