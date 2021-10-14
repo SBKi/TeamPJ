@@ -39,7 +39,7 @@ public class ProductDetailAction implements Action {
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
 		foward.url="detail.jsp";
-		return foward;
+		return foward; 
 	}
 
 }
