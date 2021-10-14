@@ -38,7 +38,7 @@ public class DetailAction implements Action {
 		request.setAttribute("bean", bean);
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url="[수정]";
+		foward.url="detail.jsp";
 		return foward;
 	}
 

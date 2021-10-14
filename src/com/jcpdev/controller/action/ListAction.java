@@ -37,7 +37,7 @@ public class ListAction implements Action {
 		request.setAttribute("list", list);
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url="[수정]";
+		foward.url="index.jsp";
 		return foward;
 	}
 
