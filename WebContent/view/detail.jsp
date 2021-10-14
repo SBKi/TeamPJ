@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -20,21 +21,29 @@
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <c:if test="${bean.product_img2 !=null }">
+     <li data-target="#myCarousel" data-slide-to="1"></li>
+    </c:if>   
+    <c:if test="${bean.product_img3 !=null}">
       <li data-target="#myCarousel" data-slide-to="2"></li>
+    </c:if>
     </ol>
 
     <div class="carousel-inner" role="listbox">
-
+	
       <div class="item active">
-        <img src="http://placehold.it/250x100"width="460" height="345">
+        <img src="/img/${bean.product_img1 }"width="460" height="345">
       </div>
+	<c:if test="${bean.product_img2 !=null}">
       <div class="item">
-        <img src="http://placehold.it/250x200" width="460" height="345">
+        <img src="/img/${bean.product_img2 }" width="460" height="345">
       </div>
+    </c:if>
+     <c:if test="${bean.product_img3 !=null}">
       <div class="item">
-        <img src="http://placehold.it/250x300" width="460" height="345">
+        <img src="/img/${bean.product_img3 }" width="460" height="345">
       </div>
+    </c:if>
     </div>
 
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -47,31 +56,31 @@
     </a>
   </div>
 			</article>
-			<a href="#" class="article-profile-link">
+			<a href="#" class="article-profile-link ">
 			<article class="detail-profile">
-				<img alt="" src="http://placehold.it/250x100">
-				<p>admin</p>
-			</article></a>
+				<img alt="" src="img/person.png">
+				<p>${bean.product_seller }</p>
+			</article>
+			</a>
 			<article class="detail-content">
 			<div class="detail-sub-price">
-				<h2 class="detail-subject">상품 이름입니다</h2>
-				<p class="detail-price">20,000원</p>
+				<h2 class="detail-subject">${bean.product_name }</h2>
+				<p class="detail-price">
+				<fmt:formatNumber value="${bean.product_price }" pattern="#,###"/>원
+				</p>
 			</div>
 			<div>
 				<pre>
-프라다 밀라노 정품입니다.
-품질 보증서 있습니다.
-완전 새 제품이구요!
-정가 890,000만원 입니다.
-사진찍는다고 잠깐 손댄거 빼고 박스에서 꺼내본적도 없는 제품입니다.
-관심있으시면 연락주세용^/^
-정품인지 정 못 믿으시겠으면 제 인적사항까지 드릴게요.
-돈 급해서 팝니다. 연락주세요 ㅠ
+${bean.product_content }
 				</pre>
 			</div>
 			</article>
+			<article class="detail-message" style="text-align: right;">
+			<p class="btn btn-outline-success">Message</p>
+			<p class="btn btn-outline-danger">Like</p>
+			</article>
 			<article class="detail-other">
-			<p class="article-counts">관심 0 ∙ 조회 119</p>
+			<p class="article-counts">관심 0 ∙ 조회 ${bean.product_readcount }</p>
 			</article>
 			</div>
 			</div>

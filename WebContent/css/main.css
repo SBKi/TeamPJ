@@ -17,11 +17,15 @@
 .col-12 {
 	margin-bottom: 3em;
 }
+
 .card {
-    border:none;
+	border: none;
 	margin-bottom: 7em;
 }
 
+.card-img-top {
+	height: 10em;
+}
 /* .mypage-section {
 	margin-top: 140px;
 	min-height: 100%;
@@ -31,16 +35,13 @@
 	margin-top: 120px;
  	height: 100%;
  	width: 300px;
- 	position: fixed;
+ 	position: fixed; 
  	z-index: 1;
  	top: 0;
  	left: 0;
 	background-color: #FAFAFA;;
   	overflow-x: hidden;
 }
-
-
-
 .floatwrap {
     display: block;
     position: fixed;
@@ -96,5 +97,4 @@
     cursor: pointer;
     z-index: 1;
 }
-
  */

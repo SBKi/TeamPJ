@@ -1,5 +1,9 @@
 function TestFuc() {
-	alert('클릭');
+	var frm = document.signfrm;
+	const check = 0; 
+	check = checkId();
+	check = 
+
 }
 // 변수 설정
 const id = document.querySelector('#id');
@@ -44,6 +48,7 @@ function checkId() {
 		error[0].innerHTML = "적합한 아이디입니다.";
 		error[0].style.color = "green";
 		error[0].style.display = "block";
+		return 1;
 	}
 }
 /*비밀번호*/
@@ -61,6 +66,7 @@ function checkPw() {
 		error[1].innerHTML = "적합한 비밀번호입니다.";
 		error[1].style.color = "green";
 		error[1].style.display = "block";
+			return 1;
 	}
 }
 /*비밀번호 체크*/

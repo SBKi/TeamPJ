@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.jcpdev.dto.Member;
 import com.jcpdev.dto.Product;
 import com.jcpdev.mybatis.SqlSessionBean;
 
@@ -18,11 +19,18 @@ public class ProductDao {
 	public static ProductDao getInstance() {
 		return dao;
 	}
-
+	
 	public List<Product> getList(Map<String, Integer> map){   // �쟾泥� 由ъ뒪�듃 異쒕젰
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
 		list = mapper.selectList("product.getList",map);
+		mapper.close();
+		return list;
+	}
+	public List<Product> getMyList(Member vo){   // �쟾泥� 由ъ뒪�듃 異쒕젰
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getMyList",vo);
 		mapper.close();
 		return list;
 	}
@@ -42,18 +50,18 @@ public class ProductDao {
 		return cnt;
 	}
 	
-	public List<Product> getBuy(Map<String, Integer> map){   // 援щℓ�궡�뿭 由ъ뒪�듃 異쒕젰
+	public List<Product> getBuy(String product_buyer){   // 援щℓ�궡�뿭 由ъ뒪�듃 異쒕젰
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getBuy",map);
+		list = mapper.selectList("product.getBuy",product_buyer);
 		mapper.close();
 		return list;
 	}
 	
-	public List<Product> getSell(Map<String, Integer> map){   // �뙋留ㅻ궡�뿭 由ъ뒪�듃 異쒕젰
+	public List<Product> getSell(String product_seller){   // �뙋留ㅻ궡�뿭 由ъ뒪�듃 異쒕젰
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getSell",map);
+		list = mapper.selectList("product.getSell",product_seller);
 		mapper.close();
 		return list;
 	}
@@ -72,16 +80,16 @@ public class ProductDao {
 		mapper.close();
 	}
 	 
-	public void update_like(Product dto) { // 利먭꺼李얘린 異붽�
+	public void update_like(int product_no) { // 利먭꺼李얘린 異붽�
 		SqlSession mapper = factory.openSession();
-		mapper.insert("product.update_like",dto);
+		mapper.insert("product.update_like",product_no);
 		mapper.commit();
 		mapper.close();
 	}
 	
-	public void delete_like(Product dto) { // 利먭꺼李얘린 �궘�젣
+	public void delete_like(int product_no) { // 利먭꺼李얘린 �궘�젣
 		SqlSession mapper = factory.openSession();
-		mapper.insert("product.delete_like",dto);
+		mapper.insert("product.delete_like",product_no);
 		mapper.commit();
 		mapper.close();
 	}

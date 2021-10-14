@@ -18,31 +18,31 @@ public class GalleryRegistAction implements Action {
 			throws ServletException, IOException {
 		
 		GalleryDao gdao = GalleryDao.getInstance();
-		String path="c:\\upload";     		//ì„œë²„ì»´í“¨í„° ë¡œì»¬ê²½ë¡œ - í´ë” ë§Œë“¤ì–´ ë†“ìœ¼ì„¸ìš”.
-		//í”„ë¡œì íŠ¸ í´ë”ì™€ ê´€ë ¨ ì—†ëŠ” ê²½ë¡œì¼ë•Œ  url ë§¤í•‘ì„ server.xmlì— ì„¤ì •í•œë‹¤.
+		String path="c:\\upload";     		//¼­¹öÄÄÇ»ÅÍ ·ÎÄÃ°æ·Î - Æú´õ ¸¸µé¾î ³õÀ¸¼¼¿ä.
+		//ÇÁ·ÎÁ§Æ® Æú´õ¿Í °ü·Ã ¾ø´Â °æ·ÎÀÏ¶§  url ¸ÅÇÎÀ» server.xml¿¡ ¼³Á¤ÇÑ´Ù.
 		//String path = request.getServletContext().getRealPath("/image");    
-		//			ã„´ì—…ë¡œë“œ í´ë”ê°€ í”„ë¡œì íŠ¸ í´ë”ì˜ í•˜ìœ„ ê²½ë¡œ image í´ë” ì¼ë•Œ ì‚¬ìš©í•©ë‹ˆë‹¤.
+		//			¤¤¾÷·Îµå Æú´õ°¡ ÇÁ·ÎÁ§Æ® Æú´õÀÇ ÇÏÀ§ °æ·Î image Æú´õ ÀÏ¶§ »ç¿ëÇÕ´Ï´Ù.
 
 		
-		int size=10*1024*1024;   //10MByte , ìµœëŒ€íŒŒì¼í¬ê¸°
+		int size=10*1024*1024;   //10MByte , ÃÖ´ëÆÄÀÏÅ©±â
 		try {
 			
-			//ì—…ë¡œë“œëœ íŒŒì¼ì„ ë°›ì„ ìˆ˜ ìˆëŠ” MultipartRequestíƒ€ì…ì˜ request ê°ì²´ ìƒì„±.
+			//¾÷·ÎµåµÈ ÆÄÀÏÀ» ¹ŞÀ» ¼ö ÀÖ´Â MultipartRequestÅ¸ÀÔÀÇ request °´Ã¼ »ı¼º.
 			MultipartRequest multi_request = new MultipartRequest(request,path,size,"UTF-8",
 												new DefaultFileRenamePolicy());
-			//ê¸°ì¡´ íŒŒì¼ëª…ê³¼ ì¤‘ë³µëœ íŒŒì¼ëª…ì€ ì´ë¦„ì„ ë³€ê²½ -> ê¸°ë³¸ë°©ì‹ì€ íŒŒì¼ëª…ë’¤ì— ìˆœì°¨ì ìœ¼ë¡œ ë²ˆí˜¸ ë¶€ì—¬
+			//±âÁ¸ ÆÄÀÏ¸í°ú Áßº¹µÈ ÆÄÀÏ¸íÀº ÀÌ¸§À» º¯°æ -> ±âº»¹æ½ÄÀº ÆÄÀÏ¸íµÚ¿¡ ¼øÂ÷ÀûÀ¸·Î ¹øÈ£ ºÎ¿©
 			
-			//title(text), pic(file) 2ê°œ íŒŒë¼ë¯¸í„°
+			//title(text), pic(file) 2°³ ÆÄ¶ó¹ÌÅÍ
 			String title= multi_request.getParameter("title"); 
 			String filename = multi_request.getFilesystemName("pic");   
-			//íŒŒì¼ì„ ë°›ì•„ì˜¤ê³  ì§€ì •ëœ pathì— ì €ì¥, ì €ì¥ëœ íŒŒì¼ëª… ë¦¬í„´
-			//ìƒˆë¡œìš´ íŒŒì¼ëª… ê·œì¹™ìœ¼ë¡œ íŒŒì¼ëª… ë³€ê²½í•˜ê¸°ë„ í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.(ì°¸ê³ )
+			//ÆÄÀÏÀ» ¹Ş¾Æ¿À°í ÁöÁ¤µÈ path¿¡ ÀúÀå, ÀúÀåµÈ ÆÄÀÏ¸í ¸®ÅÏ
+			//»õ·Î¿î ÆÄÀÏ¸í ±ÔÄ¢À¸·Î ÆÄÀÏ¸í º¯°æÇÏ±âµµ ÇÒ ¼ö ÀÖ½À´Ï´Ù.(Âü°í)
 			Gallery vo = new Gallery(0, title, filename);
-			gdao.insert(vo);    //ì—…ë¡œë“œí•œ íŒŒì¼ì„ í…Œì´ë¸” ì»¬ëŸ¼ ê°’ìœ¼ë¡œ ì €ì¥.
-			System.out.println("gallery insert ì„±ê³µ!");
+			gdao.insert(vo);    //¾÷·ÎµåÇÑ ÆÄÀÏÀ» Å×ÀÌºí ÄÃ·³ °ªÀ¸·Î ÀúÀå.
+			System.out.println("gallery insert ¼º°ø!");
 		}catch(Exception e){   
 		//	e.printStackTrace();	
-			System.out.println("gallery ì˜¤ë¥˜  :" + e.getMessage());
+			System.out.println("gallery ¿À·ù  :" + e.getMessage());
 		}
 		
 		

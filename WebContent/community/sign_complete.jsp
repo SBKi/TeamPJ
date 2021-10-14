@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="./css/login.css?v=3">
 <link rel="stylesheet" href="./css/find.css?v=3">
+<link rel="stylesheet" href="./css/login.css?v=3">
 </head>
 <body>
 <%
@@ -26,7 +26,7 @@
 			<div class="container" style="padding-top: 28px;">
 				<div class="ANBD_logo">
 					<img src="./img/logo.png?v3"
-						onclick="location.href='./index.jsp'" style="cursor: pointer;">
+						onclick="location.href='index.do'" style="cursor: pointer;">
 				</div>
 				<div class="header_title">회원가입을 축하드립니다!!</div>
 				<div class="login_line"></div>
@@ -56,15 +56,12 @@
 					
 				</div>
 				<div>
-					<input class="button input" type="button" value="확인" onclick="location.href='./index.do'">
-					<input class="button input" type="button" value="수정" onclick="location.href='update.jsp'">
+					<input class="input btn-block" type="button" value="확인" onclick="location.href='index.do'">
 				</div>
 				<div class="button_section">
 					<a class="" href="find_id.do">아이디 찾기</a>
 					<span class="hor_line">|</span>
 					<a class="" href="find_password.do">비밀번호 찾기</a>
-					<span class="hor_line ">|</span>
-					<a class="" href="sign_up.do">회원가입</a>
 				</div>
 			</div>
 		</div>

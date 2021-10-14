@@ -17,13 +17,13 @@
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <div class="filebox">
-	                    <img src="" class="rounded-circle" width="150" height="150" id="preview-image">
+	                    <img src="./img/default.png" class="rounded-circle" width="150" height="150" id="preview-image">
 	                    <label for="input-image">변경</label>
 						<input type="file" id="input-image">
 					</div>
                     <div class="mt-3">
-                      <h4>홍길동</h4>
-                      <p class="text-muted font-size-sm">서울 광진구 자양동 841-1</p>
+                      <h4>${member_name}</h4>
+                      <p class="text-muted font-size-sm">${member_address}</p>
                     </div>
                   </div>
                 </div>
@@ -112,7 +112,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
 

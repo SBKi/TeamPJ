@@ -1,4 +1,6 @@
-jQuery(document).ready(function() {        
+/**
+ * 
+ */jQuery(document).ready(function() {        
            
             var storedFiles = [];      
             //$('.cvf_order').hide();
@@ -69,7 +71,7 @@ jQuery(document).ready(function() {
                             return function(e) {
                                 $('.image_list').append(
                                 "<li file = '" + file.name + "'>" +                                
-                                    "<img name='img"+i+"' class = 'item_img' src = '" + e.target.result + "' />" +
+                                    "<img  class = 'item_img' src = '" + e.target.result + "' />" +
                                     "<a href = '#' class = 'cvf_delete_image' title = 'Cancel'><img class = 'delete-btn' src = 'img/delete.png' /></a>" +
                                 "</li>"
                                 );     

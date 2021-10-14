@@ -16,30 +16,30 @@ public class ProductDetailAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		int product_no = Integer.parseInt(request.getParameter("product_no"));
-		int pageNo = Integer.parseInt(request.getParameter("page"));
+		int idx = Integer.parseInt(request.getParameter("pno"));
+//		int pageNo = Integer.parseInt(request.getParameter("page"));
 
 		ProductDao dao = ProductDao.getInstance();
-		if(session.getAttribute("readIdx") !=null){
-			StringBuilder readproduct_no = (StringBuilder)session.getAttribute("readproduct_no");
-			boolean status = readproduct_no.toString().contains("/"+product_no+"/");
-			if(!status) {
-				dao.readCount(product_no);
-				readproduct_no.append(product_no + "/");
+		if (session.getAttribute("readIdx") != null) {
+			StringBuilder readIdx = (StringBuilder) session.getAttribute("readIdx");
+			boolean status = readIdx.toString().contains("/" + idx + "/");
+			if (!status) {
+				dao.readCount(idx);
+				readIdx.append(idx + "/");
 			}
-		}else{
-			StringBuilder readproduct_no=new StringBuilder("/");
-			session.setAttribute("readproduct_no", readproduct_no);
+		} else {
+			StringBuilder readIdx = new StringBuilder("/");
+			session.setAttribute("readIdx", readIdx);
 		}
-		
-		Product bean = dao.getOne(product_no);
-		
-		request.setAttribute("page", pageNo);
+
+		Product bean = dao.getOne(idx);
+
+//		request.setAttribute("page", pageNo);
 		request.setAttribute("bean", bean);
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url="detail.jsp";
-		return foward; 
+		foward.url = "/view/detail.jsp";
+		return foward;
 	}
 
 }

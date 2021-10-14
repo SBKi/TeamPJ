@@ -1,7 +1,6 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +22,6 @@ public class LoginAction implements Action {
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		PrintWriter out = response.getWriter();
 		String id=request.getParameter("id");
 		String password=request.getParameter("password");
 		
@@ -39,15 +37,15 @@ public class LoginAction implements Action {
 		MemberDao dao = MemberDao.getInstance();
 		Member user_check = dao.login(map);
 		if(user_check != null){
-		//ë¡œê·¸ì¸ ì •ë³´ ì¼ì¹˜
-			session.setAttribute("user_name",user_check.getMember_name());
-			session.setAttribute("user_id",user_check.getMember_id());
-			request.setAttribute("message", "ë¡œê·¸ì¸ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-			request.setAttribute("url", "./");
-		}else {
-			request.setAttribute("message", "ë¡œê·¸ì¸ ì •ë³´ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤.");
-			request.setAttribute("url", "login.do");   //ë³€ê²½
-		}
+			//·Î±×ÀÎ Á¤º¸ ÀÏÄ¡
+				session.setAttribute("user_name",user_check.getMember_name());
+				session.setAttribute("user_id",user_check.getMember_id());
+				request.setAttribute("message", "·Î±×ÀÎ µÇ¾ú½À´Ï´Ù.");
+				request.setAttribute("url", "index.do");
+			}else {
+				request.setAttribute("message", "·Î±×ÀÎ Á¤º¸°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
+				request.setAttribute("url", "login.do");   //º¯°æ
+			}
 		
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;

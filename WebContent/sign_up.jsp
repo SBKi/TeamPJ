@@ -19,7 +19,7 @@
 				</div>
 				<div class="header_title">회원가입</div>
 				<div class="login_line"></div>
-				<form action="sign_up.do" method="post">
+				<form action="sign_up.do" method="post" name="signfrm" >
 				
 					<div class="input_section">
 						<!-- ID -->	
@@ -47,7 +47,7 @@
 						<input class="input" type="text" name="address1" class="form-control" placeholder="상세 주소를 입력하세요"/> <br>
 						</div>
 						<span class="error_next_box"></span>
-						<input class="button1 input" type="submit" value="회원가입하기">
+						<input class="button1 input" type="button" value="회원가입하기" onclick="TestFuc();">
 					</div>
 				</form>
 				<div class="button_section">
@@ -64,7 +64,6 @@
 		</div>
 	</div>
 	<script src="js/main.js"  type="text/javascript"></script>
-	
 	<script>
 // 사용할 function명 적어주기
 function findAddr() {

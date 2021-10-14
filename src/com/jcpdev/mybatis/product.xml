@@ -7,6 +7,9 @@
 	<select id="getList" resultType="Product"	parameterType="java.util.Map">
 		select * from product limit #{startNo},#{pageSize}
 	</select>
+	<select id="getMyList" resultType="Product"	parameterType="Member">
+		select * from product where product_seller =#{member_id}
+	</select>
 	
 	<select id="getOne" resultType="Product" parameterType="int">
 		select * from product where product_no=#{product_no}
@@ -16,11 +19,11 @@
 		select count(product_like) from product where product_no=#{product_no}
 	</select>
 	
-	<select id="getBuy" resultType="Product" parameterType="java.util.Map">
+	<select id="getBuy" resultType="Product" parameterType="String">
 		select * from product where product_buyer=#{product_buyer} limit #{startNo},#{pageSize}
 	</select>
 	
-	<select id="getSell" resultType="Product" parameterType="java.util.Map">
+	<select id="getSell" resultType="Product" parameterType="String">
 		select * from product where product_seller=#{product_seller} limit #{startNo},#{pageSize}
 	</select>
 	
@@ -34,11 +37,11 @@
 		where product_no=#{product_no}
 	</update>
 	
-	<update id="update_like" parameterType="Product">
+	<update id="update_like" parameterType="int">
 		update product set product_like= 1 where product_no=#{product_no}
 	</update>
 	
-	<update id="delete_like" parameterType="Product">
+	<update id="delete_like" parameterType="int">
 		update product set product_like= 0 where product_no=#{product_no}
 	</update>
 	

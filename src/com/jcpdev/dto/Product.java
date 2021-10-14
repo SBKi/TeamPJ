@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-	private int product_no;
-	private int product_category;
+	private int  product_no;
+	private String product_category;
 	private String product_name;
 	private String product_content;
 	private int product_price;
@@ -19,8 +19,9 @@ public class Product {
 	private String product_img2;
 	private String product_img3;
 	private String product_seller;
-	private String product_buyer; 
-	private boolean product_like;
+	private String product_buyer;
+	private String product_status;
 	private Timestamp product_date;
 	private int  product_readcount;
+	
 }
