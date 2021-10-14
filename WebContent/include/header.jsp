@@ -24,7 +24,7 @@
 <div class="container fixed-top">
 <nav class="navbar  navbar-expand-lg">
   <div class="container-fluid">
-   <a href="index.do"><img src="./img/logo.png" class="img-logo me-auto" width="100" height="74"></a>
+   <a href="index.do"><img src="img/logo.png" class="img-logo me-auto" width="100" height="74"></a>
       <form class="d-flex">
         <input class="form-control me-2 searchbox" type="text" placeholder="물건명을 입력해보세요!" >
       </form>

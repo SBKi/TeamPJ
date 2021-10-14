@@ -16,8 +16,6 @@
 						class="title">${vo.product_name }</a> ...</li>
 					<li>${vo.product_price }</li>
 					<li>${vo.readCount }</li>
-							
-
 				</ul>
 			</li>
 		</c:forEach>
