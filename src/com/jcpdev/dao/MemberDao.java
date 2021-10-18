@@ -53,5 +53,20 @@ public class MemberDao {
 		return dto;
 	}
 	
+	public Member findId(Map<String,String> map) {
+	      Member result = null;
+	      SqlSession mapper = sqlFactory.openSession();
+	      result = mapper.selectOne("Member.findId", map);
+	      mapper.close();
+	      return result;
+	   }
+	   
+	   public Member findPassword(Map<String,String> map) {
+	      Member result = null;
+	      SqlSession mapper = sqlFactory.openSession();
+	      result = mapper.selectOne("Member.findPassWord", map);
+	      mapper.close();
+	      return result;
+	   }
 
 }

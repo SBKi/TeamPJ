@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
+import com.jcpdev.controller.action.FindID;
+import com.jcpdev.controller.action.FindPassword;
 import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.LoginAction;
 import com.jcpdev.controller.action.LogoutAction;
@@ -94,6 +96,18 @@ public class FrontController extends HttpServlet {
 		}else if(spath.equals("/productInsert.do")) {
 			Action action = new InsertProduct();
 			forward = action.execute(request, response);
+		}else if(spath.equals("/mailSend.do")) {
+			path = "./view/mailSend.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/mypageProfile.do")) {
+			path = "./view/mypageProfile.jsp";
+			forward = new ActionForward(false,path);
+		}else if(spath.equals("/findId_complete.do")) {
+			Action action = new FindID();
+			forward = action.execute(request, response); 
+		}else if(spath.equals("/findPassword_complete.do")) {
+			Action action = new FindPassword();
+			forward = action.execute(request, response); 
 		}
 		
 		

@@ -26,4 +26,22 @@
 	<insert id="fileupload" parameterType="Gallery">
 	insert into member(member_img) values(#{member_img}) where member_id = #{member_id}
 	</insert>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" parameterType="java.util.Map" resultType="Member">
+      select * from member where member_name = #{member_name} and member_email = #{member_email} and member_tel = #{member_tel}
+   </select>
+   
+	<!-- 비밀번호 찾기 -->
+   <select id="findPassWord" parameterType="java.util.Map" resultType="Member">
+      select * from member where member_id = #{member_id} and member_email = #{member_email} and member_tel = #{member_tel}
+   </select>
+	<!-- 아이디 중복 체크 -->
+	
+	<!-- 유효성 검사 -->
+	
+	
+	
+	<!-- 회원 정보 수정 -->
+		
 </mapper>
