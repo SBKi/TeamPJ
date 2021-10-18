@@ -16,7 +16,6 @@ public class LogoutAction implements Action {
 		
 		request.setAttribute("message", "로그아웃");
 		request.setAttribute("url", "index.do");
-//		pageContext.include("error/alert.jsp");
 		
 		session.invalidate();	
 		ActionForward foward = new ActionForward();

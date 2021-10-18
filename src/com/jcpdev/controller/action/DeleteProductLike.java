@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jcpdev.dao.ProductDao;
 
-public class ProductdeleteLikeAction implements Action {
+public class DeleteProductLike implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int product_no = Integer.parseInt(request.getParameter("product_no"));
 		int pageNo = Integer.parseInt(request.getParameter("page"));
 		ProductDao dao = ProductDao.getInstance();
@@ -21,7 +20,7 @@ public class ProductdeleteLikeAction implements Action {
 		request.setAttribute("page", pageNo);
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url = "community/update.jsp";
+		foward.url = "";
 		return foward;
 	}
 }

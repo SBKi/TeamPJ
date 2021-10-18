@@ -20,89 +20,82 @@ public class ProductDao {
 		return dao;
 	}
 	
-	public List<Product> getList(Map<String, Integer> map){   // �쟾泥� 由ъ뒪�듃 異쒕젰
+	public List<Product> getList(Map<String, Integer> map){   // 상품테이블 리스트
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
 		list = mapper.selectList("product.getList",map);
 		mapper.close();
 		return list;
 	}
-	public List<Product> getMyList(Member vo){   // �쟾泥� 由ъ뒪�듃 異쒕젰
+	
+	public List<Product> getMySellList(Member vo){   // 판매내역
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getMyList",vo);
+		list = mapper.selectList("product.getMySellList",vo);
 		mapper.close();
 		return list;
 	}
 	
+	public List<Product> getMyBuyList(Member vo){   // 구매내역
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getMyBuyList",vo);
+		mapper.close();
+		return list;
+	}
 	
-	public Product getOne(int idx) {	// �긽�뭾 �긽�꽭
+	public Product getOne(int idx) {	// 상품번호로 조회
 		SqlSession mapper = factory.openSession();
 		Product dto = mapper.selectOne("product.getOne", idx);  
 		mapper.close();
 		return dto;
 	}
 	
-	public int getCount() {	// 愿��떖 媛��닔
+	public int getCount() {	// 즐겨찾기 횟수
 		SqlSession mapper = factory.openSession();
 		int cnt = mapper.selectOne("product.getCount");  
 		mapper.close();     
 		return cnt;
 	}
 	
-	public List<Product> getBuy(String product_buyer){   // 援щℓ�궡�뿭 由ъ뒪�듃 異쒕젰
-		List<Product> list = null;
-		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getBuy",product_buyer);
-		mapper.close();
-		return list;
-	}
 	
-	public List<Product> getSell(String product_seller){   // �뙋留ㅻ궡�뿭 由ъ뒪�듃 異쒕젰
-		List<Product> list = null;
-		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getSell",product_seller);
-		mapper.close();
-		return list;
-	}
-	
-	public void insert(Product dto) { // �긽�뭹 �벑濡�
+	public void insert(Product dto) { // 상품등록
 		SqlSession mapper = factory.openSession();
 		mapper.insert("product.insert",dto);
 		mapper.commit();
 		mapper.close();
 	}
 	
-	public void update(Product dto) { // �긽�뭹 �닔�젙
+	public void update_product(Product dto) { // 상품수정
 		SqlSession mapper = factory.openSession();
-		mapper.insert("product.update",dto);
+		mapper.insert("product.update_product",dto);
 		mapper.commit();
 		mapper.close();
 	}
 	 
-	public void update_like(int product_no) { // 利먭꺼李얘린 異붽�
+	public void update_like(int product_no) { // 즐겨찾기 등록
 		SqlSession mapper = factory.openSession();
 		mapper.insert("product.update_like",product_no);
 		mapper.commit();
 		mapper.close();
 	}
 	
-	public void delete_like(int product_no) { // 利먭꺼李얘린 �궘�젣
+	public void delete_like(int product_no) { // 즐겨찾기 해제
 		SqlSession mapper = factory.openSession();
 		mapper.insert("product.delete_like",product_no);
 		mapper.commit();
 		mapper.close();
 	}
 	
-	public List<Product> getLike(Map<String, Integer> map){   // 利먭꺼李얘린 由ъ뒪�듃 異쒕젰
+	public List<Product> getMyLike(Map<String, Integer> map){   // 즐겨찾기 목록 조회
 		List<Product> list = null;
 		SqlSession mapper = factory.openSession();
-		list = mapper.selectList("product.getLike",map);
+		list = mapper.selectList("product.getMyLike",map);
 		mapper.close();
 		return list;
 	}
 	
-	public int delete(Map<String, Object> map) { // 湲� �궘�젣
+	public int delete(Map<String, Object> map) { // 상품 삭제
 		SqlSession mapper = factory.openSession();
 		int n = mapper.delete("product.delete", map);
 		mapper.commit();
@@ -110,7 +103,7 @@ public class ProductDao {
 		return n;
 	}
 	
-	public void readCount(int idx) {	// �뙎湲� 媛��닔
+	public void readCount(int idx) {	// 조회수
 		SqlSession mapper = factory.openSession();
 		mapper.update("product.readCount", idx);
 		mapper.commit();

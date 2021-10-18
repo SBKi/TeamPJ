@@ -22,8 +22,8 @@ public class LoginAction implements Action {
 		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession();
-		String id=request.getParameter("id");
-		String password=request.getParameter("password");
+		String member_id=request.getParameter("member_id");
+		String member_password=request.getParameter("member_password");
 		
 		if(session.getAttribute("readIdx") ==null){
 			StringBuilder readIdx=new StringBuilder("/");
@@ -31,20 +31,19 @@ public class LoginAction implements Action {
 		}
 		
 		Map<String,String> map = new HashMap<>();
-		map.put("id",id);
-		map.put("password",password);
+		map.put("member_id",member_id);
+		map.put("member_password",member_password);
 		System.out.println(map);
 		MemberDao dao = MemberDao.getInstance();
 		Member user_check = dao.login(map);
 		if(user_check != null){
-			//·Î±×ÀÎ Á¤º¸ ÀÏÄ¡
 				session.setAttribute("user_name",user_check.getMember_name());
 				session.setAttribute("user_id",user_check.getMember_id());
-				request.setAttribute("message", "·Î±×ÀÎ µÇ¾ú½À´Ï´Ù.");
+				request.setAttribute("message", "ë¡œê·¸ì¸ ì„±ê³µ");
 				request.setAttribute("url", "index.do");
 			}else {
-				request.setAttribute("message", "·Î±×ÀÎ Á¤º¸°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù.");
-				request.setAttribute("url", "login.do");   //º¯°æ
+				request.setAttribute("message", "ë¡œê·¸ì¸ ì‹¤íŒ¨");
+				request.setAttribute("url", "login.do");
 			}
 		
 		ActionForward foward = new ActionForward();

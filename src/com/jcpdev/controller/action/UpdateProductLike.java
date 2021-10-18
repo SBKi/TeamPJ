@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jcpdev.dao.ProductDao;
 
 
-public class ProductupdateLikeAction implements Action {
+public class UpdateProductLike implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

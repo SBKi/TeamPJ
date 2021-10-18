@@ -15,8 +15,8 @@ import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.LoginAction;
 import com.jcpdev.controller.action.LogoutAction;
 import com.jcpdev.controller.action.MainAction;
-import com.jcpdev.controller.action.MainAction2;
-import com.jcpdev.controller.action.ProductAdd;
+import com.jcpdev.controller.action.GetMySellList;
+import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.ProductDetailAction;
 
 @WebServlet("*.do")
@@ -71,7 +71,7 @@ public class FrontController extends HttpServlet {
 			path = "./view/mypage.jsp";
 			forward = new ActionForward(false,path);
 		}else if(spath.equals("/my_product.do")) {
-			Action action = new MainAction2();
+			Action action = new GetMySellList();
 			forward = action.execute(request, response);
 		}else if(spath.equals("/purchaselist.do")) {
 			path = "./view/purchaselist.jsp";
@@ -92,10 +92,11 @@ public class FrontController extends HttpServlet {
 			Action action = new ProductDetailAction();
 			forward = action.execute(request, response);
 		}else if(spath.equals("/productInsert.do")) {
-			Action action = new ProductAdd();
+			Action action = new InsertProduct();
 			forward = action.execute(request, response);
 		}
-		//�씠 �떆�젏�뿉�꽌 forward �뿉 isRedirect �� url 媛믪씠 ���옣�릺�뿀�쑝硫� ok!
+		
+		
 		if(forward.isRedirect()) {   //���엯 boolean �씪�븣�뒗 getXXX �븘�땲怨� isXXX �엯�땲�떎.
 			response.sendRedirect(forward.getUrl());
 		}else {

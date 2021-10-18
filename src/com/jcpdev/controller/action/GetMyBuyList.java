@@ -16,12 +16,12 @@ import com.jcpdev.dto.Member;
 import com.jcpdev.dto.PageDto;
 import com.jcpdev.dto.Product;
 
-public class MainAction2 implements Action {
+public class GetMyBuyList implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		// 판매내역 가져오기
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 
@@ -31,7 +31,7 @@ public class MainAction2 implements Action {
 		MemberDao mdao = MemberDao.getInstance();
 		
 		Member user =  mdao.getInfo(id);
-		List<Product> list = dao.getMyList(user);
+		List<Product> list = dao.getMyBuyList(user);
 
 		request.setAttribute("list", list);
 

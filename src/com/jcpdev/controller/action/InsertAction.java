@@ -15,20 +15,20 @@ public class InsertAction implements Action {
 		//테이블 insert
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		String name =request.getParameter("name");
-		String tel =request.getParameter("tel");
-		String email =request.getParameter("email");
-		String address = request.getParameter("address");
+		String member_id = request.getParameter("member_id");
+		String member_password = request.getParameter("member_password");
+		String member_name =request.getParameter("member_name");
+		String member_tel =request.getParameter("member_tel");
+		String member_email =request.getParameter("member_email");
+		String member_address = request.getParameter("member_address");
 
 		Member dto = new Member();
-		dto.setMember_id(id);
-		dto.setMember_name(name);
-		dto.setMember_password(password);
-		dto.setMember_tel(tel);
-		dto.setMember_email(email);
-		dto.setMember_address(address);
+		dto.setMember_id(member_id);
+		dto.setMember_name(member_name);
+		dto.setMember_password(member_password);
+		dto.setMember_tel(member_tel);
+		dto.setMember_email(member_email);
+		dto.setMember_address(member_address);
 		MemberDao dao = MemberDao.getInstance();
 		dao.insert(dto);
 		

@@ -23,24 +23,23 @@
 				
 					<div class="input_section">
 						<!-- ID -->	
-						<input class="input" type="text" id="id" name="id" placeholder="아이디" maxlength="20">
+						<input class="input" type="text" id="id" name="member_id" placeholder="아이디" maxlength="20">
 						<span class="error_next_box"></span>
-						<!-- ID -->	
-						<input class="input" type="password" id="pswd1" name="password" placeholder="비밀번호(8자 이상)" maxlength="20">
+						<!-- password -->	
+						<input class="input" type="password" id="pswd1" name="member_password" placeholder="비밀번호(8자 이상)" maxlength="20">
 						<span class="error_next_box"></span>
-						<!-- ID -->	
+						<!-- password -->	
 						<input class="input" type="password" id="pswd2" placeholder="비밀번호 재확인">
 						<span class="error_next_box"></span>
-						<!-- ID -->	
-						<input class="input" type="text" id="name" name="name" placeholder="이름" maxlength="5"> 
+						<!-- name -->	
+						<input class="input" type="text" id="name" name="member_name" placeholder="이름" maxlength="5"> 
 						<span class="error_next_box"></span>
-						<!-- ID -->	
-						<input class="input" type="text" id="tel" name="tel" placeholder="전화번호 입력" maxlength="16"> 
+						<!-- tel -->	
+						<input class="input" type="text" id="tel" name="member_tel" placeholder="전화번호 입력" maxlength="16"> 
 						<span class="error_next_box"></span>
-						<!-- ID -->	
-						<input class="input" type="email" id="Postcode" name="email" placeholder="본인확인 이메일"> 
+						<!-- email -->	
+						<input class="input" type="email" id="Postcode" name="member_email" placeholder="본인확인 이메일"> 
 						<span class="error_next_box"></span>
-						<!-- ID -->	
 						<div>
 						<input class="input2" type="button" value="주소 검색" onclick="findAddr()"><br>
 						<input class="input" type="text" name="address" id="userAddress" placeholder="주소를 입력"/> <br>

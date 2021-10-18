@@ -1,6 +1,5 @@
 package com.jcpdev.dao;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,7 +20,7 @@ public class MemberDao {
 		return dao;
 	}
 
-	// �쉶�썝媛��엯 �뜲�씠�꽣 異붽�
+	// 회원 가입
 	public void insert(Member dto) {
 		SqlSession mapper = sqlFactory.openSession();
 		mapper.insert("Member.insert", dto);
@@ -29,7 +28,7 @@ public class MemberDao {
 		mapper.close();
 	}
 
-	// 濡쒓렇�씤
+	// 로그인
 	public Member login(Map<String, String> map) {
 		Member result = null;
 		SqlSession mapper = sqlFactory.openSession();
@@ -37,19 +36,22 @@ public class MemberDao {
 		mapper.close();
 		return result;
 	}
-
-	public Member passwordCheck(Map<String, Object> map) {
-		SqlSession mapper = sqlFactory.openSession();
-		Member dto = mapper.selectOne("passwordCheck", map);
-		mapper.close();
-		return dto;
-	}
-
+	
+	// 회원가입 완료 화면 + @
 	public Member getInfo(String id) {
 		SqlSession mapper = sqlFactory.openSession();
 		Member user = mapper.selectOne("getInfo", id);
 		mapper.close();
 		return user;
 	}
+	
+	//
+	public Member passwordCheck(Map<String, Object> map) {
+		SqlSession mapper = sqlFactory.openSession();
+		Member dto = mapper.selectOne("passwordCheck", map);
+		mapper.close();
+		return dto;
+	}
+	
 
 }

@@ -16,7 +16,7 @@
 			onclick="location.href='detail.do?pno=${item.product_no}'">
 			<img src="/img/${item.product_img1 }" class="card-img-top" alt="...">
 			<div class="card-body">
-				<h5 class="card-title">${item.product_name }</h5>
+				<h5 class="card-title size_limite">${item.product_name }</h5>
 				<div class="card-text">
 					<span style="font-weight: bold;">
 					<fmt:formatNumber value="${item.product_price }" pattern="#,###"/>원

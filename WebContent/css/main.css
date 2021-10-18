@@ -26,6 +26,16 @@
 .card-img-top {
 	height: 10em;
 }
+
+size_limite {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   height: 24px;
+   word-wrap: break-word;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+}
 /* .mypage-section {
 	margin-top: 140px;
 	min-height: 100%;

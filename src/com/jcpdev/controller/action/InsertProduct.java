@@ -11,16 +11,16 @@ import com.jcpdev.dto.Product;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class ProductAdd implements Action {
+public class InsertProduct implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		// 상품등록
 		request.setCharacterEncoding("UTF-8");
 
-		String path = "C:\\img"; // 프로젝트 폴더와 관련 없는 경로일때 url 매핑을 server.xml에 설정한다.
-//	      String path = request.getServletContext().getRealPath("/image");    //프로젝트 폴더의 하위 경로일때
+		String path = "C:\\img";
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("user_id");
 		System.out.println("id : " +id);

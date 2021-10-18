@@ -17,7 +17,6 @@ public class ProductDetailAction implements Action {
 		
 		HttpSession session = request.getSession();
 		int idx = Integer.parseInt(request.getParameter("pno"));
-//		int pageNo = Integer.parseInt(request.getParameter("page"));
 
 		ProductDao dao = ProductDao.getInstance();
 		if (session.getAttribute("readIdx") != null) {
@@ -34,7 +33,6 @@ public class ProductDetailAction implements Action {
 
 		Product bean = dao.getOne(idx);
 
-//		request.setAttribute("page", pageNo);
 		request.setAttribute("bean", bean);
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
