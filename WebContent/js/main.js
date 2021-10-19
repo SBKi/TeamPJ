@@ -1,16 +1,4 @@
 function TestFuc() {
-	var frm = document.signfrm;
-	const check = 0; 
-	check = checkId();
-	check = checkPw();
-	check = comparePw();
-	check = checkName();
-	check = checkPhoneNum();
-	check = isEmailCorrect();
-	
-	if(check == 1){
-		f
-	}
 }
 
 // 변수 설정

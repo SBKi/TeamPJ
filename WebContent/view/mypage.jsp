@@ -16,14 +16,14 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
+                     <form action="update_mypage.do" method="post">
                     <div class="filebox">
-	                    <img src="./img/default.png" class="rounded-circle" width="150" height="150" id="preview-image">
+	                    <img src="/img/${member.member_img1 }" class="rounded-circle" width="150" height="150" id="preview-image">
 	                    <label for="input-image">변경</label>
-						<input type="file" id="input-image">
+						<input type="file" id="input-image" name="img1">
 					</div>
                     <div class="mt-3">
-                      <h4>${member_name}</h4>
-                      <p class="text-muted font-size-sm">${member_address}</p>
+                      <h4>${member.member_name}</h4>
                     </div>
                   </div>
                 </div>
@@ -35,7 +35,7 @@
                     <a class="list-group-item" href="purchaselist.do"><i class="bi bi-bag-fill" style="margin-right: 10px;"></i>구매 내역<span class="badge badge-success">4</span></a>
                     <a class="list-group-item" href="saleslist.do"> <i class="bi bi-journal-text" style="margin-right: 10px;"></i>판매 내역<span class="badge badge-success">12</span></a>
                     <a class="list-group-item" href="favoriteslist.do"><i class="bi bi-heart-fill" style="margin-right: 10px;"></i>관심 목록<span class="badge badge-success">22</span></a>
-                    <a class="list-group-item" href="maillist.do"><i class="bi bi-mailbox" style="margin-right: 10px;"></i>쪽지 함<span class="badge badge-success">22</span></a>
+                    <a class="list-group-item" href="mail.do"><i class="bi bi-mailbox" style="margin-right: 10px;"></i>쪽지 함<span class="badge badge-success">22</span></a>
                   </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
                       <h6 class="mb-0">이름</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" value="홍길동">
+                      <input type="text" name="name" class="form-control" value="${member.member_name }">
                     </div>
                   </div>
                   <hr>     
@@ -56,7 +56,8 @@
                       <h6 class="mb-0">아이디</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" disabled="disabled" class="form-control" value="admin">
+                      <input type="text" disabled="disabled" class="form-control" value="${member.member_id }">
+                    <input type="hidden" name="id" value="${member.member_id }">
                     </div>
                   </div>
                   <hr>
@@ -65,7 +66,7 @@
                       <h6 class="mb-0">비밀번호</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="password"class="form-control">
+                      <input type="password"class="form-control" name="password">
                     </div>
                   </div> 
                   <hr>
@@ -83,7 +84,7 @@
                       <h6 class="mb-0">전화번호</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" class="form-control" value="010-2132-2322">
+                      <input type="text" class="form-control" value="${member.member_tel }" name="tel">
                     </div>
                   </div>
                   <hr>
@@ -92,7 +93,7 @@
                       <h6 class="mb-0">메일</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                   		 <input type="text" class="form-control" value="hong@nvae.rocm">
+                   		 <input type="text" class="form-control" value="${member.member_email }" name="email">
                     </div>
                   </div>
                     <hr>
@@ -101,13 +102,14 @@
                       <h6 class="mb-0">주소</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      	 <input type="text" class="form-control" value="서울 광진구 자양동 01420-2">
+                      	 <input type="text" class="form-control" value="${member.member_address  }" name="address">
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-outline-success btn-block">수정</a>
+                      <button class="btn btn-outline-success btn-block" type="submit">수정</button>
+                     </form>
                     </div>
                   </div>
                 </div>

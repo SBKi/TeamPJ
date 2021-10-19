@@ -27,7 +27,7 @@
 	height: 10em;
 }
 
-size_limite {
+.size_limite {
    overflow: hidden;
    text-overflow: ellipsis;
    height: 24px;

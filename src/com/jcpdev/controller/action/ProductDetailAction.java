@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
+import com.jcpdev.dto.Member;
 import com.jcpdev.dto.Product;
 
 public class ProductDetailAction implements Action {
@@ -19,6 +21,8 @@ public class ProductDetailAction implements Action {
 		int idx = Integer.parseInt(request.getParameter("pno"));
 
 		ProductDao dao = ProductDao.getInstance();
+		MemberDao mdao = MemberDao.getInstance();
+		
 		if (session.getAttribute("readIdx") != null) {
 			StringBuilder readIdx = (StringBuilder) session.getAttribute("readIdx");
 			boolean status = readIdx.toString().contains("/" + idx + "/");
@@ -32,8 +36,10 @@ public class ProductDetailAction implements Action {
 		}
 
 		Product bean = dao.getOne(idx);
-
+		Member mbean = mdao.getInfo(bean.getProduct_seller());
 		request.setAttribute("bean", bean);
+		request.setAttribute("mem", mbean);
+		
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
 		foward.url = "/view/detail.jsp";

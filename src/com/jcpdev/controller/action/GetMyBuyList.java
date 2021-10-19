@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Member;
-import com.jcpdev.dto.PageDto;
 import com.jcpdev.dto.Product;
 
 public class GetMyBuyList implements Action {
@@ -37,7 +36,7 @@ public class GetMyBuyList implements Action {
 
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url = "/view/my_product.jsp";
+		foward.url = "/view/purchaselist.jsp";
 		return foward;
 	}
 

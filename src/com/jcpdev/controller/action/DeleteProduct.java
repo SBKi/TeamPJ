@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.jcpdev.dao.ProductDao;
 
@@ -18,24 +19,17 @@ public class DeleteProduct implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
 		
-		int product_no = Integer.parseInt(request.getParameter("product_no"));
-		String product_seller = request.getParameter("product_seller");
-
+		int product_no = Integer.parseInt(request.getParameter("pno"));
 		ProductDao dao = ProductDao.getInstance();
-		Map<String,Object> map = new HashMap<>();
-		map.put("product_no", product_no);
-		map.put("product_seller", product_seller);
 		
-		dao.delete(map);
-		out.print("<script>");
-		String message="글삭제 되었습니다.";
-		String href=null;
-		out.print("alert('"+message+"');");
-		out.print("location.href='"+href+"';");
-		out.print("</script>");
-		return null;
+		dao.delete(product_no);
+		
+		ActionForward forward = new ActionForward();
+		forward.isRedirect = true;
+		forward.url = "my_product.do";
+		return forward;
 	}
 
 }

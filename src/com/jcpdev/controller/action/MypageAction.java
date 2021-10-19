@@ -1,8 +1,8 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -11,33 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.jcpdev.dao.MemberDao;
-import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Member;
-import com.jcpdev.dto.PageDto;
-import com.jcpdev.dto.Product;
 
-public class GetMySellList implements Action {
+public class MypageAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 판매내역 가져오기
+
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 
-		ProductDao dao = ProductDao.getInstance();
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("user_id");
-		MemberDao mdao = MemberDao.getInstance();
-		
-		Member user =  mdao.getInfo(id);
-		List<Product> list = dao.getMySellList(user);
+		String id = (String) session.getAttribute("user_id");
 
-		request.setAttribute("list", list);
+		MemberDao dao = MemberDao.getInstance();
+		Member user = dao.getInfo(id);
+
+		request.setAttribute("member", user);
 
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
-		foward.url = "/view/my_product.jsp";
+		foward.url = "/view/mypage.jsp";
 		return foward;
 	}
 

@@ -1,3 +1,5 @@
+<%@page import="com.jcpdev.dto.Product"%>
+<%@page import="com.jcpdev.dao.MemberDao"%>
 <%@include file="../include/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -58,8 +60,8 @@
 			</article>
 			<a href="#" class="article-profile-link ">
 			<article class="detail-profile">
-				<img alt="" src="img/person.png">
-				<p>${bean.product_seller }</p>
+				<img alt="" src="/img/${mem.member_img1 }">
+				<p>${mem.member_name }</p>
 			</article>
 			</a>
 			<article class="detail-content">
@@ -75,10 +77,12 @@ ${bean.product_content }
 				</pre>
 			</div>
 			</article>
+			<c:if test="${bean.product_seller != sessionScope.user_id }"> <!-- 자기상품 아닐때만 보이기 -->
 			<article class="detail-message" style="text-align: right;">
-			<p class="btn btn-outline-success">Message</p>
-			<p class="btn btn-outline-danger">Like</p>
+			<a href='MakeMail.do?pno=${bean.product_no}'><p class="btn btn-outline-success">Message</p></a>
+			<a><p class="btn btn-outline-danger">Like</p></a>
 			</article>
+			</c:if>
 			<article class="detail-other">
 			<p class="article-counts">관심 0 ∙ 조회 ${bean.product_readcount }</p>
 			</article>

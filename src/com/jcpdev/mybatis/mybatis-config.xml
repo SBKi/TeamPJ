@@ -36,6 +36,7 @@
     <mapper resource="com/jcpdev/mybatis/gallery.xml"/>
     <mapper resource="com/jcpdev/mybatis/favorites.xml"/>
     <mapper resource="com/jcpdev/mybatis/category.xml"/>
+    <mapper resource="com/jcpdev/mybatis/mail.xml"/>
     <!-- sql mapper 파일은 여러개 사용될 수 있습니다. -->
   </mappers>
 </configuration>

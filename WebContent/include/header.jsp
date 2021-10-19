@@ -16,10 +16,6 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> -->
 </head>
 <body>
-<%
-	Object sc = session.getAttribute("user_name");
-	String user_name = (String)sc;
-%>
 <div class="header fixed-top">
 <div class="container fixed-top">
 <nav class="navbar  navbar-expand-lg">
@@ -30,17 +26,17 @@
       </form>
     <div class="collapse navbar-collapse ">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-gr">
-        <c:if test="${sessionScope.user_name == null}">
+        <c:if test="${sessionScope.user_id == null}">
         <li class="nav-item">
           <a class="btn btn-outline-success" href="login.do">로그인</a>
           <a class="btn btn-outline-success" href="join.do">회원가입</a>
         </li>
         </c:if>
-        <c:if test="${sessionScope.user_name != null}">
+        <c:if test="${sessionScope.user_id != null}">
         <li class="nav-item">
-         	<img class="img_profile" src="./img/messge.png" onclick="location.href='maillist.do'">
+         	<img class="img_profile" src="./img/messge.png" onclick="location.href='mail.do'">
          	<div class="chat_cnt">22</div>
-         	<img class="img_profile" src="./img/logo.png" onclick="location.href='mypage.do'">
+         	<img class="img_profile" src="/img/${user_img }" onclick="location.href='mypage.do'">
        		<a class="btn btn-outline-success" href="mypage.do">${user_name} 님</a>
           <a class="btn btn-outline-success" href="logout.do">로그아웃</a>
         </li>

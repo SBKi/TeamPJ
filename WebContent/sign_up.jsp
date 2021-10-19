@@ -42,11 +42,11 @@
 						<span class="error_next_box"></span>
 						<div>
 						<input class="input2" type="button" value="주소 검색" onclick="findAddr()"><br>
-						<input class="input" type="text" name="address" id="userAddress" placeholder="주소를 입력"/> <br>
-						<input class="input" type="text" name="address1" class="form-control" placeholder="상세 주소를 입력하세요"/> <br>
+						<input class="input" type="text" name="member_address" id="userAddress" placeholder="주소를 입력"/> <br>
+						<input class="input" type="text" name="member_address2" class="form-control" placeholder="상세 주소를 입력하세요"/> <br>
 						</div>
 						<span class="error_next_box"></span>
-						<input class="button1 input" type="button" value="회원가입하기" onclick="TestFuc();">
+						<input class="button1 input" type="submit" value="회원가입하기">
 					</div>
 				</form>
 				<div class="button_section">

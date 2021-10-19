@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Mail {
 	private int mail_no;
+	private String mail_room;
 	private String mail_content;
 	private String mail_sendid;
 	private String mail_postid;

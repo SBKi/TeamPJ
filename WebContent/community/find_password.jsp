@@ -39,8 +39,6 @@
 				<div class="button_section">
 					<a class="" href="find_id.do">아이디 찾기</a>
 					<span class="hor_line">|</span>
-					<a class="" href="find_password.do">비밀번호 찾기</a>
-					<span class="hor_line ">|</span>
 					<a class="" href="./join.do">회원가입</a>
 				</div>
 			</div>

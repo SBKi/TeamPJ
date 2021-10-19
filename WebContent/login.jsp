@@ -20,8 +20,8 @@
 				<div class="header_title">로그인</div>
 				<form action="loginAction.do" method="post">
 					<div class="input_section">
-						<input class="input" type="text" id="id" name="id" placeholder="ID">
-						<input class="input" type="password" id="password" name="password" placeholder="PASSWORD">
+						<input class="input" type="text" id="id" name="member_id" placeholder="ID">
+						<input class="input" type="password" id="password" name="member_password" placeholder="PASSWORD">
 					</div>
 					<input class="button1 input" type="submit" id="" value="로그인" class="login_button">
 				</form>

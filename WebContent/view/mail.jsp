@@ -2,9 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css" href="../css/header.css">
-<link rel="stylesheet" type="text/css" href="../css/footer.css">
-<link rel="stylesheet" type="text/css" href="../css/mail.css">
+<link rel="stylesheet" type="text/css" href="./css/header.css">
+<link rel="stylesheet" type="text/css" href="./css/footer.css">
+<link rel="stylesheet" type="text/css" href="./css/mail.css">
 
 <section class="content">
 	<div id="__next">
@@ -15,20 +15,23 @@
 						<div class="title">아나바다</div>
 					</div>
 					<ul>
+					<c:forEach items="${list }" var="item"> <!-- room 반복 -->
+					
 						<div class="card_box active">
 							<a href="">
 								<li>
 								<div class="profile">
-									<img src="../img/logo.png" alt="장치영">
+									<img src="/img/${item.img}" alt="${item.name }">
 								</div>
 								<div class="info">
-									<div class="nick">장치영</div>
-									<div class="description">판매상품 노트북</div>
-									<div class="time_ago">날짜</div>
+									<div class="nick">${item.name }</div>
+									<div class="description">${item.product_name }</div>
+<!-- 									<div class="time_ago">날짜</div> -->
 								</div>
 							</li>
 							</a>
 						</div>
+					</c:forEach>
 					</ul>
 				</div>
 				<div class="right_main">
@@ -36,7 +39,7 @@
 						<a href="" target="_blank" rel="noopener noreferrer">
 							<div class="image_box">
 								<div class="image_table">
-									<img src="../img/logo.png" alt="장치영 프로필 이미지">
+									<img src="./img/logo.png" alt="장치영 프로필 이미지">
 								</div>
 							</div>
 							<div class="info">

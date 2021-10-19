@@ -5,18 +5,22 @@
 <mapper namespace="product">
 	
 	<!-- 상품테이블 리스트 -->
-	<select id="getList" resultType="Product"	parameterType="java.util.Map">
-		select * from product limit #{startNo},#{pageSize}
+	<select id="getList" resultType="Product">
+		select * from product
 	</select>
 	
 	<!-- 내 판매내역 -->
-	<select id="getMySellList" resultType="Product"	parameterType="Member">
-		select * from product where product_seller =#{member_id} limit #{startNo},#{pageSize}
+	<select id="getMySoldList" resultType="Product"	parameterType="Member">
+		select * from product where product_seller =#{member_id} and product_status ='done'
+	</select>
+	
+	<select id="getMyList" resultType="Product"	parameterType="Member">
+		select * from product where product_seller =#{member_id}
 	</select>
 	
 	<!-- 내 구매내역 -->
 	<select id="getMyBuyList" resultType="Product"	parameterType="Member">
-		select * from product where product_buyer =#{member_id} limit #{startNo},#{pageSize}
+		select * from product where product_buyer =#{member_id}
 	</select>
 	
 	<!-- 상품번호로 조회 -->
@@ -57,8 +61,8 @@
 	</select>
 	
 	<!-- 상품 삭제  -->
-	<delete id="delete" parameterType="java.util.Map">
-		delete from product where product_no=#{product_no} and product_seller=#{member_id}
+	<delete id="delete" parameterType="int">
+		delete from product where product_no=#{product_no}
 	</delete>
 	
 	<!-- 조회수 -->
