@@ -72,7 +72,7 @@
 				</p>
 			</div>
 			<div>
-				<pre>
+				<pre class="product_content_pre">
 ${bean.product_content }
 				</pre>
 			</div>

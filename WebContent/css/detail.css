@@ -59,3 +59,9 @@
 	letter-spacing: -0.6px;
 	color: #868e96;
 }
+
+.product_content_pre {
+	white-space: pre-wrap;
+	word-break: break-all;
+	overflow: auto;
+}

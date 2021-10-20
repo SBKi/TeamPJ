@@ -30,6 +30,7 @@ import com.jcpdev.controller.action.GetMySoldList;
 import com.jcpdev.controller.action.GetMyList;
 import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.ProductDetailAction;
+import com.jcpdev.controller.action.SearchAction;
 import com.jcpdev.controller.action.UpdatePasswordAction;
 
 @WebServlet("*.do")
@@ -134,6 +135,12 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/DeleteProduct.do")) {
 			Action action = new DeleteProduct();
 			forward = action.execute(request, response);
+		} else if (spath.equals("/SearchAction.do")) {
+			Action action = new SearchAction();
+			forward = action.execute(request, response);
+		}else if (spath.equals("/Search.do")) {
+			path = "./view/search.jsp";
+			forward = new ActionForward(false, path);
 		}
 
 		if (forward.isRedirect()) { // ���엯 boolean �씪�븣�뒗 getXXX �븘�땲怨� isXXX �엯�땲�떎.

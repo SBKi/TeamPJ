@@ -18,6 +18,11 @@
 		select * from mail where mail_sendid =#{id} or mail_postid =#{id} group by mail_room
 	</select>
 	
+	<!-- 메일 room 리스트 긁어오기 (자기아이디 포함되어있는 메일)  -->
+	<select id="getMailList" parameterType="String" resultType="Mail">
+		select * from mail where mail_room = #{mail_room}
+	</select>
+	
 	<!-- 보낸쪽지함  sendid-->
 	<select id="sendMails" parameterType="String" resultType="Mail">
 		select * from mail where mail_sendid = #{mail_sendid}
@@ -40,4 +45,3 @@
 	
 	
 </mapper>
-

@@ -20,3 +20,9 @@
 	max-height: 250px;
 	margin-bottom: 15px;
 }
+
+.product_content_pre {
+	white-space: pre-wrap;
+	word-break: break-all;
+	overflow: auto;
+}

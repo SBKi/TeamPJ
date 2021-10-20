@@ -60,6 +60,11 @@
 		select * from product limit #{startNo},#{pageSize} where product_like= 1
 	</select>
 	
+	<!-- 상품 찾기 목록 조회 -->
+	<select id="getSearchList" resultType="Product"	parameterType="String">
+		select * from product where product_name like #{content};
+	</select>
+	
 	<!-- 상품 삭제  -->
 	<delete id="delete" parameterType="int">
 		delete from product where product_no=#{product_no}

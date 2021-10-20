@@ -32,6 +32,13 @@ public class MailDao {
 		SqlSession mapper = factory.openSession();
 		list = mapper.selectList("MailSpace.getRoomList", id);
 		mapper.commit();
+		return list;
+	}
+
+	public List<Mail> getMailList(String mail_room) {
+		List<Mail> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("MailSpace.getMailList", mail_room);
 		mapper.close();
 		return list;
 	}

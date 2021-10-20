@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="./css/header.css">
 <link rel="stylesheet" type="text/css" href="./css/footer.css">
 <link rel="stylesheet" type="text/css" href="./css/mail.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <section class="content">
 	<div id="__next">
@@ -17,63 +18,71 @@
 					<ul>
 					<c:forEach items="${list }" var="item"> <!-- room 반복 -->
 					
-						<div class="card_box active">
-							<a href="">
+						<div class="card_box active" onclick="getMailList('${item.room_no}','${item.id }','${item.product_no }')">
 								<li>
 								<div class="profile">
 									<img src="/img/${item.img}" alt="${item.name }">
 								</div>
 								<div class="info">
 									<div class="nick">${item.name }</div>
-									<div class="description">${item.product_name }</div>
+									<div class="description size_limite">${item.product_name }</div>
 <!-- 									<div class="time_ago">날짜</div> -->
 								</div>
 							</li>
-							</a>
 						</div>
 					</c:forEach>
 					</ul>
 				</div>
 				<div class="right_main">
-					<div class="chat_header">
-						<a href="" target="_blank" rel="noopener noreferrer">
-							<div class="image_box">
-								<div class="image_table">
-									<img src="./img/logo.png" alt="장치영 프로필 이미지">
-								</div>
-							</div>
-							<div class="info">
-								<div>
-									<span>장치영</span><span>판매상품 노트북
-									</span>
-								</div>
-							</div>
-						</a>
-						<div class="declaration">
-							<div>
-								<img
-									src="https://ccimage.hellomarket.com/web/2019/chat/btn_hellotalk_report_x2.png"
-									alt="신고 이미지">
-							</div>
-						</div>
-						<a href="/messages">
-							<div class="chat_close"></div>
-						</a>
-					</div>
-					<div class="chat_description" style="bottom: 49px"></div>
-					<div class="chat_footer">
-						<form action="mailSend.jsp">
-							<div class="chat_footer_area">
-								<input class="chat_input" type="text" contenteditable="true"
-									placeholder="메세지를 입력해주세요.">
-							</div>
-							<button type="submit">전송</button>
-						</form>
-					</div>
+				<div id="message"></div>
+				<div id="footer_input" class="chat_footer"></div>
 				</div>
 			</div>
 		</section>
 	</div>
 	</div>
 </section>
+<script>
+function getMailList(room,id,p_no){
+
+	$.ajax({
+			type : 'post', //post 방식으로 전송
+			url : './view/mail/GetMailList_Ajax.jsp', //데이터를 주고받을 파일 주소
+			data : {"room":room,"order_id":id,"p_no":p_no}, //위의 변수에 담긴 데이터를 전송해준다.
+			dataType : 'html', //html 파일 형식으로 값을 담아온다.
+			success : function(data) { //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
+				$('#message').html(data); //현재 화면 위 id="message" 영역 안에 data안에 담긴 html 코드를 넣어준다. 
+			}
+		});
+		getInputBox(room,id,p_no);
+	}
+	
+function getInputBox(room,id,p_no){
+	$.ajax({
+			type : 'get', //post 방식으로 전송
+			url : './view/mail/InputBox_Ajax.jsp', //데이터를 주고받을 파일 주소
+			data : {"room":room,"order_id":id,"p_no":p_no}, //위의 변수에 담긴 데이터를 전송해준다.
+			dataType : 'html', //html 파일 형식으로 값을 담아온다.
+			success : function(data) { //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
+				$('#footer_input').html(data); //현재 화면 위 id="message" 영역 안에 data안에 담긴 html 코드를 넣어준다. 
+			}
+		});
+	}
+	
+function insert_mail(room){
+	var postid =  $('#postid_'+room).val();
+	var product_no =  $('#product_no_'+room).val();
+	var content =  $('#content_'+room).val();
+	
+	$.ajax({
+			type : 'post', //post 방식으로 전송
+			url : './view/mail/InsertMail.jsp', //데이터를 주고받을 파일 주소
+			data : {"room":room,"postid":postid,"p_no":product_no,"content":content}, //위의 변수에 담긴 데이터를 전송해준다.
+			dataType : 'html', //html 파일 형식으로 값을 담아온다.
+			success : function() { //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
+				getMailList(room,postid,product_no);
+			}
+		});
+	}
+</script>
 <%@include file="/include/footer.jsp"%>

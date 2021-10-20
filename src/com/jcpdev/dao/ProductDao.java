@@ -29,6 +29,13 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
+	public List<Product> getSearchList(String content) { // 상품 검색 리스트
+		List<Product> list = null;
+		SqlSession mapper = factory.openSession();
+		list = mapper.selectList("product.getSearchList",content);
+		mapper.close();
+		return list;
+	}
 
 	public List<Product> getMyList(Member vo) { // 판매중
 		List<Product> list = null;

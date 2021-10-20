@@ -34,7 +34,6 @@ public class MailAction implements Action {
 		list = dao.getRoomList(id);
 
 		List<MailRoom> roomlist = new ArrayList<MailRoom>();
-		System.out.println(list);
 		for (Mail mail : list) {
 			MailRoom room = new MailRoom();
 			Product pvo = new Product();

@@ -69,7 +69,7 @@
 									onclick="location.href='productAdd.do'">물품 등록</div>
 								<table class="table table-hover">
 									<tr>
-										<th style="width: 98px;">상태</th>
+										<th>상태</th>
 										<th>상품이름</th>
 										<th>등록날짜</th>
 										<th>가격</th>
@@ -84,7 +84,7 @@
 											<td><fmt:formatNumber value="${item.product_price}" pattern="#,###"/>원</td>
 										</tr>
 									<tr class="collapse" id="product_${index.count }">
-										<td colspan="4"><img src="/img/${item.product_img1 }" class="product-detail-img"> <pre>${item.product_content}</pre>
+										<td colspan="4"><img src="/img/${item.product_img1 }" class="product-detail-img"> <pre class="product_content_pre">${item.product_content}</pre>
 											<div class="product-detail-btn">
 												<a class="btn btn-success btn-block">수정</a> 
 												<a class="btn btn-danger btn-block" href="DeleteProduct.do?pno=${item.product_no }">삭제</a>
