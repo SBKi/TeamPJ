@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.FavoritesDao;
 import com.jcpdev.dao.MailDao;
 import com.jcpdev.dao.ProductDao;
-import com.jcpdev.dto.Mail;
 import com.jcpdev.dto.Product;
 
 public class MailDoneAction implements Action {
@@ -28,7 +27,6 @@ public class MailDoneAction implements Action {
 		ProductDao p_dao = ProductDao.getInstance();
 
 		String id = (String) session.getAttribute("user_id");
-		String room = request.getParameter("room");
 		int p_no = Integer.parseInt(request.getParameter("p_no"));
 		String buyer = request.getParameter("buyer");
 

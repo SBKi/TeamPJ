@@ -1,13 +1,10 @@
 package com.jcpdev.controller.action;
 
-import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dto.Member;
@@ -28,7 +25,6 @@ public class ModifyProfileCheckPwd implements Action {
 		MemberDao dao = MemberDao.getInstance();
 		Member member = dao.login(map);
 		ActionForward foward = new ActionForward();
-		PrintWriter writer = response.getWriter();
 
 		if (member != null) { // 비밀번호 일치
 			request.setAttribute("member", member);

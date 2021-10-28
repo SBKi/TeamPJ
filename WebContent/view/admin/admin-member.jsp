@@ -41,7 +41,7 @@
 							<div class="card mb-3">
 								<div class="card-body">
 									<h4 style="margin-bottom: 20px;">
-										<i class="bi-people-fill" style="margin-right: 10px;"></i>회원
+										<i class="bi bi-people-fill" style="margin-right: 10px;"></i>회원
 										내역
 									</h4>
 									<table class="table table-hover">

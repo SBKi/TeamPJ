@@ -5,12 +5,8 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.jcpdev.dao.MailDao;
-import com.jcpdev.dao.ProductDao;
-import com.jcpdev.dto.Mail;
-import com.jcpdev.dto.Product;
 
 public class MailDeleteAction implements Action {
 

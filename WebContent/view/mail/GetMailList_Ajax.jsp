@@ -44,7 +44,7 @@ List<Mail> list = mail_dao.getMailList(room);
 			</div>
 		</div>
 </div>
-<div class="chat_description" style="bottom: 49px">
+<div class="chat_description" style="bottom: 49px" id="chatContent">
 	<%
 	for (Mail m : list) {
 		if (id.equals(m.getMail_sendid())) {

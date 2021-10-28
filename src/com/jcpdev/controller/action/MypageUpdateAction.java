@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.jcpdev.dao.MemberDao;
-import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Member;
-import com.jcpdev.dto.Product;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 

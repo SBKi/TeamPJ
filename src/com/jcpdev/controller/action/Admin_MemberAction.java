@@ -33,7 +33,7 @@ public class Admin_MemberAction implements Action {
 			MemberDao mdao = MemberDao.getInstance();
 			List<Member> user = mdao.getMemberList();
 			List<Member> Wuser = mdao.getWithdrawalMemberList();
-
+			
 			request.setAttribute("list", user);
 			request.setAttribute("Wuser", Wuser);
 			ActionForward foward = new ActionForward();

@@ -1,7 +1,6 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.jcpdev.dao.CategoryDao;
-import com.jcpdev.dto.Category;
 
 public class Admin_category_deleteAction implements Action {
 

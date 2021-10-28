@@ -15,6 +15,7 @@ import com.jcpdev.controller.action.Admin_CategoryAction;
 import com.jcpdev.controller.action.Admin_MemberAction;
 import com.jcpdev.controller.action.Admin_Member_DeleteAction;
 import com.jcpdev.controller.action.Admin_Member_RecoverAction;
+import com.jcpdev.controller.action.Admin_Product_DeleteActoin;
 import com.jcpdev.controller.action.Admin_category_AddAction;
 import com.jcpdev.controller.action.Admin_category_deleteAction;
 import com.jcpdev.controller.action.Admin_mainAction;
@@ -25,7 +26,11 @@ import com.jcpdev.controller.action.FavoritesListAction;
 import com.jcpdev.controller.action.FindIdAction;
 import com.jcpdev.controller.action.FindPasswordAction;
 import com.jcpdev.controller.action.GetMyBuyList;
+import com.jcpdev.controller.action.GetMyList;
+import com.jcpdev.controller.action.GetMySoldList;
+import com.jcpdev.controller.action.GetProductAction;
 import com.jcpdev.controller.action.InsertAction;
+import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.LoginAction;
 import com.jcpdev.controller.action.LoginCompleteAction;
 import com.jcpdev.controller.action.LogoutAction;
@@ -39,10 +44,6 @@ import com.jcpdev.controller.action.ModifyProfileCheckPwd;
 import com.jcpdev.controller.action.MypageAction;
 import com.jcpdev.controller.action.MypageUpdateAction;
 import com.jcpdev.controller.action.OrderProfileAction;
-import com.jcpdev.controller.action.GetMySoldList;
-import com.jcpdev.controller.action.GetProductAction;
-import com.jcpdev.controller.action.GetMyList;
-import com.jcpdev.controller.action.InsertProduct;
 import com.jcpdev.controller.action.ProductDetailAction;
 import com.jcpdev.controller.action.Product_Add_Action;
 import com.jcpdev.controller.action.Product_Like_Action;
@@ -205,6 +206,9 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/Admin-Product.do")) {
 			Action action = new Admin_productAction();
 			forward = action.execute(request, response);
+		} else if (spath.equals("/Admin_Product_Delete.do")) {
+			Action action = new Admin_Product_DeleteActoin();
+			forward = action.execute(request, response);
 		} else if (spath.equals("/Admin-Category.do")) {
 			Action action = new Admin_CategoryAction();
 			forward = action.execute(request, response);
@@ -224,7 +228,6 @@ public class FrontController extends HttpServlet {
 			Action action = new Admin_Member_RecoverAction();
 			forward = action.execute(request, response);
 		} 
-		
 		
 		if (forward.isRedirect()) {
 			response.sendRedirect(forward.getUrl());

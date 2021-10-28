@@ -84,8 +84,7 @@
 		member where member_status = 1
 	</select>
 	<select id="getMemberList" resultType="Member">
-		select * from member where
-		member_status =0 and member_id != 'admin'
+		select * from member where	member_status =0 and member_id != 'admin'
 	</select>
 
 	<select id="getWithdrawalMemberList" resultType="Member">
