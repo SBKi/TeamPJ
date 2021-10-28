@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+.admin-card {
+	height: 10em;
+	margin-bottom: 2em;
+	padding: 1em;
+}
+
+.admin-card h4 {
+	text-align: right;
+	color: #28a745;
+	font-weight: bold;
+}
+
+.admin-card-div {
+	padding-top: 1em;
+}
+
+.admin-card a {
+	text-decoration: none;
+	font-style: normal;
+	color: black;
+}
+
+.admin-card p {
+	text-align: left;
+	margin-bottom: 0.1rem;
+}
+
+.card-text {
+	float: right;
+}
+
+.table {
+	background-color: white;
+}
+
+.a-d-t {
+	border: 1px solid #efefef;
+	font-size: 0.9em;
+	color: gray;
+	padding: 2em;
+	margin-bottom: 1em;
+}
+
+.a-d-t p {
+	margin-bottom: 2px;
+}
+
+.list-group-item a {
+	float: right;
+}
+
+.category-sub {
+	text-align: right;
+}
+
+.category-subject {
+	height: 37px;
+	margin-right: 1em;
+}
+
+.product_list_p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 24px;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}

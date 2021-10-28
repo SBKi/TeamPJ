@@ -20,22 +20,36 @@
 
 .card {
 	border: none;
-	margin-bottom: 7em;
+	margin-bottom: 2em;
 }
 
 .card-img-top {
-	height: 10em;
+	height: 18em;
+	border: 1px solid transparent;
+	object-fit: contain;
 }
 
 .size_limite {
-   overflow: hidden;
-   text-overflow: ellipsis;
-   height: 24px;
-   word-wrap: break-word;
-   display: -webkit-box;
-   -webkit-line-clamp: 1;
-   -webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 24px;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
 }
+
+.getList {
+	color: #198754;
+	background-color: #fff;
+	border-color: #198754;
+	border: none;
+	border-top: 1px solid;
+	margin-top: 1em;
+	padding-top: 0.4em;
+	margin-bottom: 5em;
+}
+
 /* .mypage-section {
 	margin-top: 140px;
 	min-height: 100%;
@@ -45,13 +59,16 @@
 	margin-top: 120px;
  	height: 100%;
  	width: 300px;
- 	position: fixed; 
+ 	position: fixed;
  	z-index: 1;
  	top: 0;
  	left: 0;
 	background-color: #FAFAFA;;
   	overflow-x: hidden;
 }
+
+
+
 .floatwrap {
     display: block;
     position: fixed;
@@ -107,4 +124,5 @@
     cursor: pointer;
     z-index: 1;
 }
+
  */

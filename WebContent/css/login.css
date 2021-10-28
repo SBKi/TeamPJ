@@ -1,188 +1,174 @@
-body {
-	background-color: #f7f7f7;
+@charset "UTF-8";
+
+@FONT-FACE {
+   font-family: 'monhwa';
+   src: url("../include/monhwa.ttf");
+}
+* {
+   font-family: monhwa;
+}
+body  {
+    background-color:#f7f7f7;
 }
 
 #login {
-	width: 100%;
-	height: 100%;
+    width:100%;
+    height:100%;
 }
-
 .header_title {
-	text-align: center;
-	font-family: NanumGothicBold;
-	font-size: 28px;
-	margin-bottom: 35px;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 35px;
 }
-
 .container {
-	width: 650px;
-	background-color: #ffffff;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	border: 1px solid #e5e5e5;
-	margin: 0 auto;
-	padding-left: 80px;
-	padding-right: 80px;
-	box-sizing: border-box;
-	padding-top: 60px;
-	padding-bottom: 60px;
-	font-family: NanumGothic;
+    width:650px;
+    background-color:#ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border:1px solid #e5e5e5;
+    margin:0 auto;
+    padding-left:80px;
+    padding-right:80px;
+    box-sizing: border-box;
+    padding-top:60px;
+    padding-bottom:60px;
 }
-
 .ANBD_logo {
-	margin-bottom: 25px;
-	margin-top: 10px;
-	text-align: center;
+    margin-bottom: 25px;
+    margin-top:10px;
+    text-align:center;
 }
-
-.ANBD_logo img {
-	height: 90px;
-}
+.ANBD_logo img { height: 90px;}
 
 .input {
-	width: 100%;
-	box-sizing: border-box;
-	height: 50px;
-	border-radius: 3px;
-	border: 1px solid #e1e1e1;
-	font-family: NanumGothic;
-/* 	color: #333333; */
-	font-size: 14px;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 5px;
+    width:100%;
+    box-sizing: border-box;
+    height:50px;
+    border-radius: 3px;
+    border:1px solid #e1e1e1;
+    color:#333333;
+    font-size:14px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:10px;
+    margin-bottom:5px;
 }
-
 .input1 {
-	width: 60%;
-	height: 50px;
-	border-radius: 3px;
-	border: 1px solid #e1e1e1;
-	font-family: NanumGothic;
-	color: #333333;
-	font-size: 14px;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 5px;
+    width:60%;
+    height:50px;
+    border-radius: 3px;
+    border:1px solid #e1e1e1;
+    color:#333333;
+    font-size:14px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:10px;
+    margin-bottom:5px;
 }
-
 .input2 {
-	width: 24%;
-	height: 50px;
-	border-radius: 3px;
-	border: 1px solid #e1e1e1;
-	font-family: NanumGothic;
-	color: #333333;
-	font-size: 14px;
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 5px;
+    width:24%;
+    height:50px;
+    border-radius: 3px;
+    border:1px solid #e1e1e1;
+    color:#333333;
+    font-size:14px;
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:10px;
+    margin-bottom:5px;
 }
-
 .login_button {
-	color: #ffffff;
-	font-size: 16px;
-	font-family: NanumGothicBold;
-	text-align: center;
-	height: 55px;
-	line-height: 55px;
-	cursor: pointer;
-	border-radius: 3px;
-	margin-top: 30px;
-	background: #4caf50;
+    color:#ffffff;
+    font-size:16px;
+    text-align: center;
+    height:55px;
+    line-height:55px;
+    cursor:pointer;
+    border-radius: 3px;
+    margin-top:30px;
+    background: #4caf50;
 }
-
 .login_button:hover {
-	color: #dddddd;
+    color:#dddddd;
 }
-
 .login_line {
-	margin-top: 30px;
-	margin-bottom: 30px;
-	border-bottom: 1px solid #e1e1e1;
+    margin-top:30px;
+    margin-bottom:30px;
+    border-bottom:1px solid #e1e1e1;
 }
-
 .button_section {
-	margin-top: 30px;
-	text-align: center;
+    margin-top:30px;
+    text-align:center;
+}
+.button_section > a{
+    font-size:16px;
+    color: black;
+    text-decoration: none;
+}
+.button_section > span.hor_line{
+    margin-left:15px;
+    margin-right:15px;
 }
 
-.button_section>a {
-	font-size: 16px;
-	color: black;
-	text-decoration: none;
+
+/*아이디찾기 */
+.button {
+    background-color: #4caf50;
+    color:white;
+    cursor: pointer;
+	text-align:center;
+	border-radius: 4px;
+	width: 49%;
+	margin-top: 20px;
 }
 
-.button_section>span.hor_line {
-	margin-left: 15px;
-	margin-right: 15px;
-}
-
-/*�븘�씠�뵒李얘린 */
 .button1 {
-	background-color: #4caf50;
-	color: white;
-	cursor: pointer;
-	text-align: center;
+    background-color: #4caf50;
+    color:white;
+    cursor: pointer;
+	text-align:center;
 	border-radius: 4px;
 	width: 100%;
 	margin-top: 20px;
+	
 }
 
 a {
 	text-decoration: none;
-	outline: none !important;
+    outline: none !important;
 }
-
 p {
-	display: block;
-	font-size: 13px;
-	font-style: normal;
-	text-align: center;
-	color: #8B8B9E;
-	padding: 20px 0;
+    display: block;
+    font-size: 13px;
+    font-style: normal;
+    text-align: center;
+    color: #8B8B9E;
+    padding: 20px 0;
 }
-
 td {
 	padding: 20px;
 	font-size: 20px;
 	font-style: normal;
 }
-/* 紐⑤컮�씪 mobile */
+/* 모바일 mobile */
 @media screen and (max-width:750px) {
-	#body {
-		padding-top: 50px !important;
-	}
-	.container {
-		padding: 15px;
-		width: 100%;
-	}
-	.container {
-		width: 100%;
-	}
-	.ANBD_logo img {
-		height: 70px;
-	}
-	.container .ANBD_logo img {
-		height: 80px;
-	}
-	.button_section>span.hor_line {
-		margin: 0 10px;
-	}
-	.button_section {
-		margin-bottom: 20px;
-	}
+    #body { padding-top: 50px !important;}
+    .container { padding: 15px; width: 100%;}
+    .container { width: 100%;}
+
+    .ANBD_logo img { height:70px; }
+    .container .ANBD_logo img { height: 80px;}
+    
+    .button_section > span.hor_line { margin: 0 10px;}
+    .button_section { margin-bottom: 20px;}
 }
-/* �뿉�윭硫붿꽭吏� */
+/* 에러메세지 */
 .error_next_box {
-	margin-top: 9px;
-	font-size: 12px;
-	color: red;
-	display: none;
+    margin-top: 9px;
+    font-size: 12px;
+    color: red;    
+    display: none;
 }
 
 .btn-block {
@@ -194,3 +180,5 @@ td {
 	margin-top: 20px;
 	width: 100%;
 }
+
+

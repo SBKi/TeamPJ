@@ -1,7 +1,9 @@
 package com.jcpdev.controller.action;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,12 +24,18 @@ public class SearchAction implements Action {
 		
 		String content = request.getParameter("search_name");
 		ProductDao dao = ProductDao.getInstance();
+		int StartNo =0;
+		int EndNo = 6;
+		Map<String,Integer> map = new HashMap<>();
+		map.put("StartNo",StartNo);
+		map.put("EndNo",EndNo);
 		List<Product> list = null;
-		System.out.println("%" + content + "%");
-
+		
 		list = dao.getSearchList("%" + content + "%");
 		request.setAttribute("content", content);
 		request.setAttribute("list", list);
+		request.setAttribute("StartNo", StartNo);
+		request.setAttribute("EndNo", EndNo);
 
 		ActionForward forward = new ActionForward();
 		forward.isRedirect = false;

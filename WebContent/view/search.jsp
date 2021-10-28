@@ -2,11 +2,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <link rel="stylesheet" type="text/css" href="./css/header.css">
 <link rel="stylesheet" type="text/css" href="./css/footer.css">
 <link rel="stylesheet" type="text/css" href="./css/main.css">
 <link rel="stylesheet" type="text/css" href="./css/mypage.css">
 <link rel="stylesheet" type="text/css" href="./css/search.css">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div class="mypage-main-section">
 	<div class="mypage-section1">
@@ -17,24 +19,38 @@
 				</div>
 				<div class="row">
 				<c:forEach items="${list }" var="item">
-					<div class="card col-md-4 col-sm-6" onclick="TestFuc()">
+					<div class="card col-md-4 col-sm-6" onclick="location.href='detail.do?pno=${item.product_no}'">
 						<img src="/img/${item.product_img1 }" class="card-img-top" alt="...">
 						<div class="card-body">
-							<h5 class="card-title">${item.product_name }</h5>
+							<h5 class="card-title size_limite" >${item.product_name }</h5>
 							<div class="card-text">
-								<span style="font-weight: bold;">${item.product_price }</span><span class="card-span"><i class="bi bi-heart"></i> ${item.product_readcount }</span>
+								<span style="font-weight: bold;">
+								<fmt:formatNumber value="${item.product_price }" pattern="#,###"/>원
+								</span><span class="card-span"><i class="bi bi-heart-fill"></i> ${item.product_like }</span>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
-				</div>
-<!-- 				<div class="more-btn" onclick="#"> -->
-<!-- 					<p>더보기</p> -->
-<!-- 				</div> -->
+				<div id="add"></div>
+				 <button id="getSearch" class="getSearchList"  onclick="getSearchList('${content }','${StartNo }','${EndNo }')">더보기</button>
+				 </div>
 			</div>
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+function getSearchList(content,StartNo,EndNo){
+	$.ajax({
+			type : 'post',
+			url : './view/mail/search_Ajax.jsp',
+			data : {"content":content,"StartNo":StartNo,"EndNo":EndNo}, 
+			dataType : 'html', 
+			success : function(data) { 
+				$('#add').html(data); 
+				$('#getSearch').remove();
+			}
+		});
+	}
+</script>
 
 <%@include file="../include/footer.jsp"%>

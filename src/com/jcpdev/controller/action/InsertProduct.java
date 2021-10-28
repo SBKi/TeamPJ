@@ -23,7 +23,6 @@ public class InsertProduct implements Action {
 		String path = "C:\\img";
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("user_id");
-		System.out.println("id : " +id);
 		int size = 10 * 1024 * 1024;
 		try {
 			MultipartRequest multi_request = new MultipartRequest(request, path, size, "UTF-8",
@@ -38,10 +37,8 @@ public class InsertProduct implements Action {
 			String filename3 = multi_request.getFilesystemName("img3");
 			
 			ProductDao pdao = ProductDao.getInstance();
-			Product vo = new Product(0,product_category,product_name, product_content, product_price, filename1, filename2, filename3,id, null, null, null, 0);
-			System.out.println(vo);
+			Product vo = new Product(0,product_category,product_name, product_content, product_price, filename1, filename2, filename3,id, null, null,0, null,null,0);
 			pdao.insert(vo);
-			System.out.println("gallery insert 성공!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

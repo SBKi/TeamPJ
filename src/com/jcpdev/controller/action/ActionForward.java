@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class ActionForward {
-	boolean isRedirect = false;
+	public boolean isRedirect = false;
 	String url;
-	
-
 }

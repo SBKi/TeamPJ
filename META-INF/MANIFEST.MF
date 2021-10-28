@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TeamPJ
+Bundle-SymbolicName: TeamPJ
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.jcpdev.controller,
+ com.jcpdev.controller.action,
+ com.jcpdev.dao,
+ com.jcpdev.dto,
+ com.jcpdev.mybatis

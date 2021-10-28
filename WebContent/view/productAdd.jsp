@@ -25,7 +25,8 @@
 						<div>상품 등록</div>
 					</div>
 				</div>
-				<form action="productInsert.do" method="post" enctype="multipart/form-data">
+				<form action="productInsert.do" method="post"
+					enctype="multipart/form-data">
 					<div class="regist_box">
 						<div class="description">
 							<dl class="regist_image_dl" id="images_box">
@@ -37,7 +38,7 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<a>최대 3개까지만 업로드 가능합니다.</a>
-												<input type="file" name="img1" class="form-control user_picked_files" accept="image/*" />
+												<input type="file" name="img1" class="form-control user_picked_files" accept="image/*" required/>
 												<input type="file" name="img2" class="form-control user_picked_files" accept="image/*" />
 												<input type="file" name="img3" class="form-control user_picked_files" accept="image/*" />
 											</div>
@@ -65,22 +66,11 @@
 								<dd>
 									<div class="item_select_box">
 										<select name="product_category">
-										<option value="" hidden="">기타</option>
-											<option value="스포츠">스포츠</option>
-											<option value="뷰티">뷰티</option>
-											<option value="여성의류">여성의류</option>
-											<option value="남성의류">남성의류</option>
-											<option value="패션잡화">패션잡화</option>
-											<option value="휴대폰">휴대폰</option>
-											<option value="컴퓨터">컴퓨터</option>
-											<option value="카메라">카메라</option>
-											<option value="디지털가전">디지털,가전</option>
-											<option value="가구">가구</option>
-											<option value="생활">생활</option>
-											<option value="도서">도서</option>
-											<option value="문구">문구</option>
-											<option value="반려동물용품">반려동물용품</option>
-											</select>
+											<option value="기타" selected="selected">기타</option>
+										<c:forEach items="${category }" var="item">
+											<option value="${item.category_name}">${item.category_name }</option>
+										</c:forEach>
+										</select>
 									</div>
 								</dd>
 							</dl>
@@ -101,8 +91,9 @@
 								<dd>
 									<div class="box_sell_method box_area">
 										<div class="box_price">
-											<input type="text" name="product_price" placeholder="가격을 입력해주세요."
-												value="" style="width: 90%; max-width: 280px; height: 38px;"><span
+											<input type="text" name="product_price"
+												placeholder="가격을 입력해주세요." value=""
+												style="width: 90%; max-width: 280px; height: 38px;"><span
 												class="input_span_text">원</span>
 										</div>
 									</div>

@@ -21,7 +21,9 @@ public class Product {
 	private String product_seller;
 	private String product_buyer;
 	private String product_status;
+	private int product_like;
 	private Timestamp product_date;
+	private Timestamp product_done_date;
 	private int  product_readcount;
 	
 }

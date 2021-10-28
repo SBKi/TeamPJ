@@ -32,7 +32,7 @@ public class MakeMailAction implements Action {
 
 		int check = mdao.RoomCheck(room);
 		if (check == 0) { 
-			Mail mVo = new Mail(0, room, "", id, pVo.getProduct_seller(), pno, null);
+			Mail mVo = new Mail(0, room, "채팅방이 생성되었습니다!!", id, pVo.getProduct_seller(), pno,1, null);
 			mdao.insert(mVo);
 
 			foward.isRedirect = true;

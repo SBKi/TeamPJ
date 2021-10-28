@@ -19,21 +19,33 @@
 	</select>
 	<select id="loginCheck" parameterType="java.util.Map"
 		resultType="Member">
-		select * from member where member_id = #{member_id} and
-		member_password = #{member_password}
+		select * from member
+		where member_id = #{member_id} and
+		member_password = #{member_password} and
+		member_status = 0
 	</select>
 
 	<select id="findId" parameterType="java.util.Map"
 		resultType="Member">
-		select * from member where member_name = #{member_name} and member_email = #{member_email} and member_tel = #{member_tel}
+		select * from member where member_name = #{member_name} and
+		member_email = #{member_email} and member_tel = #{member_tel}
 	</select>
 
-	<select id="findPassWord" parameterType="java.util.Map"	resultType="Member">
-		select * from member where member_id = #{member_id} and	member_email = #{member_email} and member_tel = #{member_tel}
+	<select id="findPassWord" parameterType="java.util.Map"
+		resultType="Member">
+		select * from member where member_id = #{member_id} and
+		member_email = #{member_email} and member_tel = #{member_tel}
 	</select>
 
 	<update id="update_password" parameterType="java.util.Map">
-		update member set	member_password = #{member_password} where member_id = #{member_id}
+		update member set
+		member_password = #{member_password} where member_id = #{member_id}
+	</update>
+
+	<update id="update_member_status" parameterType="Member">
+		update member
+		set member_status = 1 where member_password = #{member_password} and
+		member_id = #{member_id}
 	</update>
 
 	<update id="update_myprofile" parameterType="Member">
@@ -57,5 +69,37 @@
 		insert into
 		member(member_img) values(#{member_img}) where id = #{id}
 	</insert>
+
+	<!-- 어드민 관련 xml -->
+
+	<!-- 활동중인 회원 cnt -->
+	<select id="admin_cnt_ing" resultType="int">
+		select count(*) from
+		member where member_status = 0
+	</select>
+
+	<!-- 탈퇴 회원 cnt -->
+	<select id="admin_cnt_done" resultType="int">
+		select count(*) from
+		member where member_status = 1
+	</select>
+	<select id="getMemberList" resultType="Member">
+		select * from member where
+		member_status =0 and member_id != 'admin'
+	</select>
+
+	<select id="getWithdrawalMemberList" resultType="Member">
+		select * from	member where member_status =1
+	</select>
+	<update id="delete_member" parameterType="String">
+		update member set	member_status = 1	where member_id = #{member_id}
+	</update>
+
+	<update id="recover_member" parameterType="String">
+		update member set
+		member_status =0
+		where
+		member_id = #{member_id}
+	</update>
 
 </mapper>

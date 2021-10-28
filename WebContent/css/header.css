@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+@FONT-FACE {
+	font-family: 'monhwa';
+	src: url("../include/monhwa.ttf");
+}
+
+* {
+	font-family: monhwa;
+}
+
 .html, body {
 	height: 100%;
 	margin: 0;
@@ -28,37 +37,82 @@
 }
 
 .header {
-	height: 120px;
+	height: 100px;
 	background-color: white;
 	box-shadow: 0 4px 4px -4px black;
 }
+
+@media screen and (max-width: 768px) {
+	.header {
+		height: 11em;
+	}
+	.header-search-button {
+		display: none;
+	}
+}
+
 .img_profile {
 	width: 42px;
-    height: 42px;
-    border-radius: 0.75rem;
-    margin: 10px;
-    cursor: pointer;
+	height: 42px;
+	border-radius: 0.75rem;
+	margin: 10px;
+	cursor: pointer;
 }
+
 .chat_cnt {
-    min-width: 18px;
-    background-color: #0484f6;
-    border-radius: 50px;
-    text-align: center;
-    color: #fff;
-    font-weight: 700;
-    font-size: 11px;
-    line-height: 18px;
-    position: absolute;
-    left: 48px;
-    top: 2px;
+	min-width: 18px;
+	background-color: #28a745;
+	border-radius: 50px;
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+	font-size: 11px;
+	line-height: 18px;
+	position: absolute;
+	left: 48px;
+	top: 2px;
 }
+
 .chat_cnt1 {
-    border-radius: 50px;
-    text-align: center;
-    color: #fff;
-    font-weight: 700;
-    font-size: 11px;
-    line-height: 18px;
-    left: 48px;
-    top: 2px;
+	border-radius: 50px;
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+	font-size: 11px;
+	line-height: 18px;
+	left: 48px;
+	top: 2px;
+}
+
+.header-search-button {
+	border: none;
+	background-color: transparent;
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	position: absolute;
+	left: 523px;
+	margin-top: 6px;
+}
+
+.fixed-search-icon {
+	width: 19px;
+	height: 19px;
+	fill: #868e96;
+}
+
+.form-control {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }

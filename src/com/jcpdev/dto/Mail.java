@@ -16,5 +16,6 @@ public class Mail {
 	private String mail_sendid;
 	private String mail_postid;
 	private int mail_product_no;
+	private int mail_status;
 	private Timestamp mail_date;
 }

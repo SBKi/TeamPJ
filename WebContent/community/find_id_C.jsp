@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
@@ -37,7 +37,7 @@
 				<div class="button_section">
 					<a class="" href="./find_password.do">비밀번호 찾기</a>
 					<span class="hor_line ">|</span>
-					<a class="" href="./sign_up.do">회원가입</a>
+					<a class="" href="./join.do">회원가입</a>
 				</div>
 			</div>
 		</div>

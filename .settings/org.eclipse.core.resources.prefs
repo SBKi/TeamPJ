@@ -1,9 +1,3 @@
 eclipse.preferences.version=1
-encoding//WebContent/css/login.css=UTF-8
-encoding//WebContent/view/productAdd.jsp=UTF-8
-encoding//src/com/jcpdev/controller/FrontController.java=UTF-8
-encoding//src/com/jcpdev/controller/action/InsertProduct.java=UTF-8
-encoding//src/com/jcpdev/controller/action/LogoutAction.java=UTF-8
-encoding//src/com/jcpdev/dao/MemberDao.java=UTF-8
-encoding//src/com/jcpdev/dao/ProductDao.java=UTF-8
-encoding/<project>=UTF-8
+encoding//WebContent/view/mail/GetMailList_Ajax.jsp=UTF-8
+encoding//WebContent/view/mail/InputBox_Ajax.jsp=UTF-8

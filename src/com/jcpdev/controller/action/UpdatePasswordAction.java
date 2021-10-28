@@ -18,8 +18,8 @@ public class UpdatePasswordAction implements Action {
 
 		// 테이블 insert
 		request.setCharacterEncoding("UTF-8");
-		String member_id = request.getParameter("id");
-		String member_password = request.getParameter("password");
+		String member_id = request.getParameter("member_id");
+		String member_password = request.getParameter("member_password");
 		System.out.println(member_id);
 		System.out.println(member_password);
 		Map<String, String> map = new HashMap<>();
@@ -27,7 +27,8 @@ public class UpdatePasswordAction implements Action {
 		map.put("member_id", member_id);
 		MemberDao dao = MemberDao.getInstance();
 		dao.update_password(map);
-
+		
+		request.setAttribute("message", "비밀번호 수정 성공!!");
 		// 2) db 테이블 select 쿼리 실행
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = true;

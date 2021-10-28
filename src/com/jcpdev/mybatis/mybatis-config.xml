@@ -12,6 +12,7 @@
   	<typeAlias type="com.jcpdev.dto.Category" alias="Category"/>
   	<typeAlias type="com.jcpdev.dto.Favorites" alias="Favorites"/>
   	<typeAlias type="com.jcpdev.dto.Mail" alias="Mail"/>
+  	<typeAlias type="com.jcpdev.dto.Declaration" alias="Declaration"/>
   	<typeAlias type="com.jcpdev.dto.Gallery" alias="Gallery"/>
   </typeAliases>
   

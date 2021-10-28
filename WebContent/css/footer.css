@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 .footer {
-	background-color: #156E44;
+	background-color: #28a745;
+	position: inherit;
 }
 
 .fotter-continer {

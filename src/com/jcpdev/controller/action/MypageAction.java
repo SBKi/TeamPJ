@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dto.Member;
+import com.jcpdev.dto.NavCnt;
 
 public class MypageAction implements Action {
 
@@ -27,9 +28,12 @@ public class MypageAction implements Action {
 
 		MemberDao dao = MemberDao.getInstance();
 		Member user = dao.getInfo(id);
-
+		
+		NavCnt cnt = dao.navCntUpdate(id);
+		
+		request.setAttribute("cnt", cnt);
 		request.setAttribute("member", user);
-
+		
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
 		foward.url = "/view/mypage.jsp";

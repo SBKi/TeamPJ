@@ -22,10 +22,16 @@ public class MainAction implements Action {
 		response.setContentType("text/html");
 
 		ProductDao dao = ProductDao.getInstance();
-
-		List<Product> list = dao.getList();
+		int StartNo = 0;
+		int EndNo = 8;
+		Map<String, Integer> map = new HashMap<>();
+		map.put("StartNo", StartNo);
+		map.put("EndNo", EndNo);
+		List<Product> list = dao.getAddList(map);
 
 		request.setAttribute("list", list);
+		request.setAttribute("EndNo", EndNo);
+		request.setAttribute("StartNo", StartNo);
 
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;

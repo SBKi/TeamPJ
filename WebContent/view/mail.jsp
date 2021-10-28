@@ -26,7 +26,6 @@
 								<div class="info">
 									<div class="nick">${item.name }</div>
 									<div class="description size_limite">${item.product_name }</div>
-<!-- 									<div class="time_ago">날짜</div> -->
 								</div>
 							</li>
 						</div>
@@ -40,31 +39,38 @@
 			</div>
 		</section>
 	</div>
-	</div>
 </section>
 <script>
 function getMailList(room,id,p_no){
-
 	$.ajax({
-			type : 'post', //post 방식으로 전송
-			url : './view/mail/GetMailList_Ajax.jsp', //데이터를 주고받을 파일 주소
-			data : {"room":room,"order_id":id,"p_no":p_no}, //위의 변수에 담긴 데이터를 전송해준다.
-			dataType : 'html', //html 파일 형식으로 값을 담아온다.
-			success : function(data) { //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
-				$('#message').html(data); //현재 화면 위 id="message" 영역 안에 data안에 담긴 html 코드를 넣어준다. 
+			type : 'post',
+			url : './view/mail/GetMailList_Ajax.jsp',
+			data : {"room":room,"order_id":id,"p_no":p_no}, 
+			dataType : 'html', 
+			success : function(data) { 
+				$('#message').html(data); 
 			}
+		});
+		readCheck(room,id,p_no);
+	}
+	
+function readCheck(room,id,p_no){
+	$.ajax({
+			type : 'post',
+			url : './view/mail/MailReadCheck_Ajax.jsp',
+			data : {"room":room,"order_id":id,"p_no":p_no}, 
 		});
 		getInputBox(room,id,p_no);
 	}
 	
 function getInputBox(room,id,p_no){
 	$.ajax({
-			type : 'get', //post 방식으로 전송
-			url : './view/mail/InputBox_Ajax.jsp', //데이터를 주고받을 파일 주소
-			data : {"room":room,"order_id":id,"p_no":p_no}, //위의 변수에 담긴 데이터를 전송해준다.
-			dataType : 'html', //html 파일 형식으로 값을 담아온다.
-			success : function(data) { //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
-				$('#footer_input').html(data); //현재 화면 위 id="message" 영역 안에 data안에 담긴 html 코드를 넣어준다. 
+			type : 'get', 
+			url : './view/mail/InputBox_Ajax.jsp', 
+			data : {"room":room,"order_id":id,"p_no":p_no},
+			dataType : 'html', 
+			success : function(data) { 
+				$('#footer_input').html(data);
 			}
 		});
 	}
@@ -75,11 +81,11 @@ function insert_mail(room){
 	var content =  $('#content_'+room).val();
 	
 	$.ajax({
-			type : 'post', //post 방식으로 전송
-			url : './view/mail/InsertMail.jsp', //데이터를 주고받을 파일 주소
-			data : {"room":room,"postid":postid,"p_no":product_no,"content":content}, //위의 변수에 담긴 데이터를 전송해준다.
-			dataType : 'html', //html 파일 형식으로 값을 담아온다.
-			success : function() { //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
+			type : 'post', 
+			url : './view/mail/InsertMail.jsp', 
+			data : {"room":room,"postid":postid,"p_no":product_no,"content":content}, 
+			dataType : 'html', 
+			success : function() { 
 				getMailList(room,postid,product_no);
 			}
 		});

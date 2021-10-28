@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.jcpdev.dao.MemberDao;
 import com.jcpdev.dao.ProductDao;
 import com.jcpdev.dto.Member;
+import com.jcpdev.dto.NavCnt;
 import com.jcpdev.dto.Product;
 
 public class GetMyList implements Action {
@@ -26,14 +27,15 @@ public class GetMyList implements Action {
 
 		ProductDao dao = ProductDao.getInstance();
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("user_id");
+		String id = (String) session.getAttribute("user_id");
 		MemberDao mdao = MemberDao.getInstance();
-		
-		Member user =  mdao.getInfo(id);
+
+		Member user = mdao.getInfo(id);
+		NavCnt cnt = mdao.navCntUpdate(id);
 		List<Product> list = dao.getMyList(user);
 
 		request.setAttribute("list", list);
-
+		request.setAttribute("cnt", cnt);
 		ActionForward foward = new ActionForward();
 		foward.isRedirect = false;
 		foward.url = "/view/my_product.jsp";

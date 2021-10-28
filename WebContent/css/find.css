@@ -1,6 +1,12 @@
+@FONT-FACE {
+   font-family: 'monhwa';
+   src: url("../include/monhwa.ttf");
+}
+* {
+   font-family: monhwa;
+}
 .header_title {
     text-align: center;
-    font-family: NanumGothicBold;
     font-size: 28px;
     margin-bottom: 35px;
 }
@@ -27,7 +33,6 @@
     display: inline-block;
     zoom: 1;
     *display: inline;
-    font-family: NanumGothicBold;
     font-size: 16px;
     color: #333333;
 }

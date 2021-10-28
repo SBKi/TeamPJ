@@ -4,7 +4,8 @@ create table member(
 	member_name varchar(10) not null,
 	member_tel varchar(13) not null,
 	member_email varchar(50) not null,
-	member_address varchar(50) not null 
+	member_address varchar(50) not null,
+	member_img varchar(50) 
 );
 
 create table product(

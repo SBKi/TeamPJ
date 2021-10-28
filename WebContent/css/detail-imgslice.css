@@ -21,6 +21,7 @@
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	line-height: 1;
 	width: 100%;
+	object-fit: contain;
 }
 
 @media all and (transform-3d) , ( -webkit-transform-3d ) {

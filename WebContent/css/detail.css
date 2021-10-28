@@ -12,6 +12,7 @@
 	font-size: 1.5em;
 	line-height: 1.5;
 	letter-spacing: -1px;
+	color: black;
 }
 
 .detail-profile {
@@ -44,6 +45,16 @@
 	margin-bottom: 10em;
 }
 
+.detail-message {
+	text-align: right;
+	display: flex;
+	flex-flow: row-reverse;
+}
+
+.detail-message p {
+	margin-left: 1em;
+}
+
 .detail-subject {
 	font-weight: bold;
 }
@@ -64,4 +75,24 @@
 	white-space: pre-wrap;
 	word-break: break-all;
 	overflow: auto;
+}
+
+.member_id {
+	background-color: white;
+	border: none;
+	font-size: large;
+}
+
+.heart {
+	color: red;
+}
+
+.decal_button {
+	margin-top: 1em;
+	float: right;
+	width: 18px;
+	cursor: pointer;
+	height: auto;
+	border-radius: 0px;
+	float: right;
 }

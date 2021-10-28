@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>비밀번호찾기</title>
@@ -27,9 +27,9 @@
 				<div class="login_line"></div>
 				<form action="findPassword_complete.do" method="post">
 					<div class="input_section">
-						<input class="input" type="text" id="id" name="id" placeholder="아이디">
-						<input class="input" type="email" id="email" name="email" placeholder="본인 이메일(주소)">
-						<input class="input" type="text" id="phone" name="tel" placeholder="본인 휴대폰번호">
+						<input class="input" type="text" id="id" name="member_id" placeholder="아이디">
+						<input class="input" type="email" id="email" name="member_email" placeholder="본인 이메일(주소)">
+						<input class="input" type="text" id="phone" name="member_tel" placeholder="본인 휴대폰번호">
 					</div>
 					<div>
 						<input class="button input" type="submit" value="확인">
@@ -39,6 +39,8 @@
 				<div class="button_section">
 					<a class="" href="find_id.do">아이디 찾기</a>
 					<span class="hor_line">|</span>
+					<a class="" href="find_password.do">비밀번호 찾기</a>
+					<span class="hor_line ">|</span>
 					<a class="" href="./join.do">회원가입</a>
 				</div>
 			</div>

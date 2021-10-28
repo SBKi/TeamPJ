@@ -2,46 +2,51 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- sql mapper   -->  
+<!-- sql mapper -->
 <mapper namespace="MailSpace">
 	<!-- 쪽지 보내기(서버에 데이터 전송) -->
 	<insert id="insert" parameterType="mail">
-		insert into mail(mail_room,mail_content,mail_sendid,mail_postid,mail_product_no)
-		values (#{mail_room},#{mail_content},#{mail_sendid},#{mail_postid},#{mail_product_no})
-	</insert> 
-	<!-- 메일room 존재 확인  RoomCheck -->
+		insert into
+		mail(mail_room,mail_content,mail_sendid,mail_postid,mail_product_no)
+		values
+		(#{mail_room},#{mail_content},#{mail_sendid},#{mail_postid},#{mail_product_no})
+	</insert>
+	<!-- 메일room 존재 확인 RoomCheck -->
 	<select id="RoomCheck" parameterType="String" resultType="Mail">
+		select
+		* from mail where mail_room = #{mail_room}
+	</select>
+	<!-- 메일 room 리스트 긁어오기 (자기아이디 포함되어있는 메일) -->
+	<select id="getRoomList" parameterType="String"
+		resultType="Mail">
+		select * from mail where mail_sendid =#{id} or mail_postid
+		=#{id} group by mail_room
+	</select>
+	<!-- 메일 room 리스트 긁어오기 (자기아이디 포함되어있는 메일) -->
+	<select id="getMailList" parameterType="String"
+		resultType="Mail">
 		select * from mail where mail_room = #{mail_room}
 	</select>
-	<!-- 메일 room 리스트 긁어오기 (자기아이디 포함되어있는 메일)  -->
-	<select id="getRoomList" parameterType="String" resultType="Mail">
-		select * from mail where mail_sendid =#{id} or mail_postid =#{id} group by mail_room
-	</select>
-	
-	<!-- 메일 room 리스트 긁어오기 (자기아이디 포함되어있는 메일)  -->
-	<select id="getMailList" parameterType="String" resultType="Mail">
-		select * from mail where mail_room = #{mail_room}
-	</select>
-	
-	<!-- 보낸쪽지함  sendid-->
-	<select id="sendMails" parameterType="String" resultType="Mail">
-		select * from mail where mail_sendid = #{mail_sendid}
-	</select>
-	
-	 <!--  받은쪽지함 postid -->
-	<select id="postMails" parameterType="String" resultType="Mail">
-		select * from mail where mail_postid = #{mail_postid}
-	</select>				
-	
+
 	<!-- 쪽지함 갯수 -->
 	<select id="countMails" parameterType="String" resultType="int">
-		select count(mail_postid) from mail where mail_postid = #{mail_postid}
-	</select>			
-
+		select count(mail_postid) from mail where mail_postid = #{mail_postid} and mail_status = 1;
+	</select>
+	<!-- 쪽지 읽음 처리 -->
+	<update id="readCheck" parameterType="java.util.Map">
+		update mail set mail_status = 0 where mail_postid=#{id} and mail_product_no = #{product_no} and mail_sendid = #{sendid}
+	</update>
 	<!-- 쪽지함에서 삭제 -->
-	<delete id="delete" parameterType="int">
-		delete from mail where mail_no= #{mail_no}
+	<delete id="delete" parameterType="String">
+		delete from mail where
+		mail_room= #{mail_room}
 	</delete>
-	
-	
+
+	<!-- 거래완료하면 그상품관련 메일 전부 삭제 -->
+	<delete id="deleteDone" parameterType="int">
+		delete from mail where
+		mail_product_no= #{mail_product_no}
+	</delete>
+
+
 </mapper>

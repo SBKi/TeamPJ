@@ -26,3 +26,13 @@
 	word-break: break-all;
 	overflow: auto;
 }
+
+.product_list_p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 24px;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}

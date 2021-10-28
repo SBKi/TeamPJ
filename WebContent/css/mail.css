@@ -19,10 +19,8 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big,
 	margin: 0;
 	padding: 0;
 	border: 0;
-	vertical-align: baseline;
 	font-weight: 400;
 	color: #333;
-	font-family: 돋움, Dotum, Arial;
 }
 
 .content .main_area {
@@ -105,6 +103,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big,
 	font-size: 13px;
 	color: #4e4e4c;
 	width: 123px;
+	
 }
 
 .left_main ul li .info .description, .left_main ul li .info .nick {
@@ -112,7 +111,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big,
 	left: 0;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .left_main ul li .info .time_ago {
@@ -137,6 +136,15 @@ a {
 	text-decoration: none;
 }
 
+.declaration a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.declaration a:hover {
+	color: #fff;
+}
+
 .left_main .card_box, .left_main ul li {
 	position: relative;
 }
@@ -148,6 +156,7 @@ a {
 	background-color: #fff;
 	border-bottom: 1px solid #ebebeb;
 	height: 80px;
+	display: flex;
 }
 
 .right_main {
@@ -367,30 +376,122 @@ button {
 .right_div {
 	margin-bottom: 1em;
 	text-align: right;
-	border-bottom: 1px solid #efefef;
+	overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    top: 0;
+    bottom: 49px;
+    left: 0;
+    right: 0;
 }
 
 .left_div {
 	margin-bottom: 1em;
-	border-bottom: 1px solid #efefef;
+	overflow: hidden;
+    border-radius: 8px;
+    width: 100%;
+    top: 0;
+    bottom: 49px;
+    left: 0;
+    right: 0;
 }
 
 .mail_id_content {
-	margin-bottom: 1em;
+	margin-top: 0.5em;
+    margin-left: 0.5em;
 	font-size: 0.9em;
 }
 
-.mail_date_content {
+.mail_left_date_content {
 	font-size: -1.5em;
-	color: gray;
+	position: relative;
+    font-size: 9px;
+    color: #b4b4b4;
+    bottom: -24px;
+    right: -8px;
 }
-
+.mail_right_date_content {
+	font-size: -1.5em;
+	position: relative;
+    font-size: 9px;
+    color: #b4b4b4;
+    bottom: -24px;
+    left: -8px;
+}
 .size_limite {
-   overflow: hidden;
-   text-overflow: ellipsis;
-   height: 24px;
-   word-wrap: break-word;
-   display: -webkit-box;
-   -webkit-line-clamp: 1;
-   -webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 24px;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.chat_div {
+	margin-top: 12px;
+}
+.mail_right_content {
+	background-color: #28a745;
+    margin-right: 21px;
+    word-break: break-all;
+    position: relative;
+    float: right;
+    text-align: left;
+    max-width: 200px;
+    padding: 9px 12px;
+    border-radius: 10px 0 10px 10px;
+    font-size: 13.5px;
+    color: #fff;
+}
+.mail_left_content {
+	background-color: #ebebeb;
+    margin-left: 21px;
+    word-break: break-all;
+    position: relative;
+    float: left;
+    text-align: right;
+    max-width: 200px;
+    padding: 9px 12px;
+    border-radius: 0 10px 10px 10px;
+    font-size: 13.5px;
+    color: #000;
+    margin-top: 10px;
+}
+.profile_div {
+	width: 200px;
+	height: 35px;
+	display: flex;
+    flex-direction: row;
+}
+.profile_img {
+	margin-left: 4px;
+	width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #ebebeb;
+	
+}
+.mail_left_content:after {
+content: "";
+    position: absolute;
+    border-color: transparent transparent #ebebeb!important;
+    border: 10px solid #000;
+    transform-origin: 0 0;
+    left: 0px;
+    top: -15px;
+    -webkit-transform: rotate( -315deg );
+    -moz-transform: rotate(-315deg);
+    transform: rotate(-315deg);
+}
+.mail_right_content:after {
+content: "";
+    position: absolute;
+    border-color: transparent transparent #28a745!important;
+    border: 10px solid #000;
+    transform-origin: 0 0;
+    right: 0;
+    top: 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }

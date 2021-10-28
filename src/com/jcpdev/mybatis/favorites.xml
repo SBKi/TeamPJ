@@ -3,11 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Favorites">
-	<select id="getAll" resultType="Gallery">
-		select * from gallery order by pno desc
-	</select>
 
-	<insert id="insert" parameterType="Gallery">
-		insert into gallery(title,filename) values(#{title},#{filename})
+<!-- 관심목록 등록 -->
+	<insert id="insert" parameterType="Favorites">
+		insert into	favorites(favorites_product_no,favorites_member_id)	values(#{favorites_product_no},#{favorites_member_id})
 	</insert>
+
+<!-- 관심등록 해제  -->
+	<delete id="delete" parameterType="Favorites">
+		delete from favorites where favorites_product_no=#{favorites_product_no} and favorites_member_id=#{favorites_member_id}
+	</delete>
+<!-- 상품거래완료후 그 상품 관련 관심등록 전부 삭제  -->
+	<delete id="deleteDone" parameterType="int">
+		delete from favorites where favorites_product_no=#{favorites_product_no}
+	</delete>
+	
+<!-- 관심목록 들고오기 (id) -->
+	<select id="getFavListId" parameterType="int"	resultType="Favorites">
+		select * from favorites where favorites_product_no = #{product_no};
+	</select>
+	
+	<!-- 관심목록 들고오기 (pno) -->
+	<select id="getFavListPd" parameterType="String"	resultType="Favorites">
+		select * from favorites where favorites_member_id = #{favorites_member_id};
+	</select>
+	<select id="getFavListCnt" parameterType="String"	resultType="int">
+		select count(*) from favorites where favorites_member_id = #{id};
+	</select>
 </mapper>

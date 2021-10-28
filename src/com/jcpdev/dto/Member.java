@@ -15,5 +15,6 @@ public class Member {
 	private String member_email;
 	private String member_img1;
 	private String member_address;
+	private int member_status;	//±βΊ» 0  Ε»Επ½Γ 1
 
 }
