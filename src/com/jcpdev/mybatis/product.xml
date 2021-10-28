@@ -205,7 +205,9 @@
 	</select>
 	<!-- 총 거래 금액 -->
 	<select id="admin_total_price" resultType="int">
-		select	ifnull(sum(product_price),0) from product where product_status = 'done';
+		select
+		ifnull(sum(product_price),0) from product where product_status =
+		'done';
 	</select>
 	<!-- 신고 상품 cnt -->
 	<select id="admin_declaration_cnt" resultType="int">
@@ -223,5 +225,8 @@
 		select * from
 		declaration ;
 	</select>
-
+	<delete id="delete_declaration">
+		delete from declaration where
+		declration_no=#{declration_no}
+	</delete>
 </mapper>

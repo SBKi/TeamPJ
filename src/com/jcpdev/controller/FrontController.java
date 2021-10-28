@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jcpdev.controller.action.Action;
 import com.jcpdev.controller.action.ActionForward;
 import com.jcpdev.controller.action.Admin_CategoryAction;
+import com.jcpdev.controller.action.Admin_Declaration_DeleteAction;
 import com.jcpdev.controller.action.Admin_MemberAction;
 import com.jcpdev.controller.action.Admin_Member_DeleteAction;
 import com.jcpdev.controller.action.Admin_Member_RecoverAction;
@@ -188,7 +189,7 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/orderProfile.do")) {
 			Action action = new OrderProfileAction();
 			forward = action.execute(request, response);
-		} else if (spath.equals("/FavoritesDeleteAction.do")) { 
+		} else if (spath.equals("/FavoritesDeleteAction.do")) {
 			Action action = new FavoritesDeleteAction();
 			forward = action.execute(request, response);
 		} else if (spath.equals("/GetProduct.do")) {
@@ -227,8 +228,11 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/Admin_Member_Recover.do")) {
 			Action action = new Admin_Member_RecoverAction();
 			forward = action.execute(request, response);
-		} 
-		
+		} else if (spath.equals("/Admin_Declaration_Delete.do")) {
+			Action action = new Admin_Declaration_DeleteAction();
+			forward = action.execute(request, response);
+		}
+
 		if (forward.isRedirect()) {
 			response.sendRedirect(forward.getUrl());
 		} else {

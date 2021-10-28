@@ -45,6 +45,7 @@
 
 .a-d-t p {
 	margin-bottom: 2px;
+	border-bottom: 1 px solid #efefef;
 }
 
 .list-group-item a {

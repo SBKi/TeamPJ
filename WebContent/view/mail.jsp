@@ -41,6 +41,11 @@
 	</div>
 </section>
 <script>
+function enterkey(room) {
+	if (window.event.keyCode == 13) {
+		insert_mail(room);
+	} 
+}
 function getMailList(room,id,p_no){
 	$.ajax({
 			type : 'post',
@@ -80,7 +85,10 @@ function insert_mail(room){
 	var postid =  $('#postid_'+room).val();
 	var product_no =  $('#product_no_'+room).val();
 	var content =  $('#content_'+room).val();
-	
+	if(content == ''){
+		alert('메시지를 입력해주세요.');
+		return false;
+	}
 	$.ajax({
 			type : 'post', 
 			url : './view/mail/InsertMail.jsp', 
@@ -88,7 +96,6 @@ function insert_mail(room){
 			dataType : 'html', 
 			success : function() { 
 				getMailList(room,postid,product_no);
-
 			}
 		});
 	}

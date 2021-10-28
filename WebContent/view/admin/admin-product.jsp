@@ -57,13 +57,14 @@
 										<div class="a-d-t">
 										<c:forEach items="${de_list }" var="de_item">
 											<c:if test="${item.product_no == de_item.declration_product_no}">
-											<p> - ${de_item.declration_id } : <span>${de_item.declration_comment }</span></p>
+											<p> - ${de_item.declration_id } : <span>${de_item.declration_comment }</span><a style="margin-left: 1em;" href="Admin_Declaration_Delete.do?pno=${de_item.declration_no }"><i class="bi bi-x-circle" ></i></a></p>
+											
 											</c:if>
 										</c:forEach>
 										</div>
 											<div class="product-detail-btn">
-												<a href="detail.do?pno=${item.product_no }" class="btn btn-success btn-block">확인</a> 
-												<a class="btn btn-danger btn-block" href="Admin_Product_Delete.do?pno=${item.product_no }">삭제</a>
+												<a href="detail.do?pno=${item.product_no }" class="btn btn-success btn-block">상품 확인</a> 
+												<a class="btn btn-danger btn-block" href="Admin_Product_Delete.do?pno=${item.product_no }">게시물 삭제</a>
 											</div></td>
 									</tr>
 								</c:forEach>
