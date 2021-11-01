@@ -1,3 +1,5 @@
+<%@page import="com.jcpdev.dao.ProductDao"%>
+<%@page import="com.jcpdev.dto.Product"%>
 <%@include file="../include/header.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -8,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="./css/main.css">
 <link rel="stylesheet" type="text/css" href="./css/mypage.css">
 <link rel="stylesheet" type="text/css" href="./css/search.css">
+<link rel="stylesheet" type="text/css" href="css/cookie.css">
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div class="mypage-main-section">
@@ -37,6 +40,25 @@
 			</div>
 		</div>
 	</div>
+	<div class="cookie_div">
+	<h5>최근 본 상품</h5>
+	<div class="cookie">
+		<%
+         if(ck!=null){
+            for(int i=ck.length; i>0; i--){
+               if(ck[i-1].getName().indexOf("product_cookie") != -1){
+                  Product vo = ProductDao.getInstance().getOne(Integer.parseInt(ck[i-1].getValue()));
+               %>
+               <div class="cookie_img">
+                  <img src="/img/<%=vo.getProduct_img1()%>" onclick="location.href='detail.do?pno=<%=vo.getProduct_no()%>'">
+                  <a onclick="removeCK('product_cookie<%=vo.getProduct_no()%>')"><i class="bi bi-x-circle"></i></a>
+               </div>
+               <%}
+            }
+         }
+      %>
+	</div>
+</div>
 </div>
 <script type="text/javascript">
 function getSearchList(content,StartNo,EndNo){

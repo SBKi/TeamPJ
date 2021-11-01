@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="com.jcpdev.dto.Product"%>
 <%@page import="com.jcpdev.dao.MemberDao"%>
 <%@include file="../include/header.jsp"%>
@@ -7,7 +8,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<% 
+	Product bean = (Product)request.getAttribute("bean");
+	Cookie c = new Cookie("product_cookie"+bean.getProduct_no(),""+bean.getProduct_no());
+	response.addCookie(c);
+%>
 <link rel="stylesheet" type="text/css" href="./css/header.css">
 <link rel="stylesheet" type="text/css" href="./css/mypage.css">
 <link rel="stylesheet" type="text/css" href="./css/footer.css">

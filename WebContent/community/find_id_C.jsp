@@ -14,7 +14,7 @@
 			<div class="container" style="padding-top: 28px;">
 				<div class="ANBD_logo">
 					<img src="./img/logo.png?v3"
-						onclick="location.href='./index.jsp'" style="cursor: pointer;">
+						onclick="location.href='index.do'" style="cursor: pointer;">
 				</div>
 				<div class="header_title">아이디 찾기 완료</div>
 				<div class="navigation_list">

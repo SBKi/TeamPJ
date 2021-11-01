@@ -14,7 +14,7 @@
 			<div class="container" style="padding-top: 28px;">
 				<div class="ANBD_logo">
 					<img src="./img/logo.png?v3"
-						onclick="location.href='./index.jsp'" style="cursor: pointer;">
+						onclick="location.href='index.do'" style="cursor: pointer;">
 				</div>
 				<div class="header_title">회원가입을 축하드립니다!!</div>
 				<div class="login_line"></div>

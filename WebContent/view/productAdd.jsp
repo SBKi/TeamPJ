@@ -66,7 +66,6 @@
 								<dd>
 									<div class="item_select_box">
 										<select name="product_category">
-											<option value="기타" selected="selected">기타</option>
 										<c:forEach items="${category }" var="item">
 											<option value="${item.category_name}">${item.category_name }</option>
 										</c:forEach>

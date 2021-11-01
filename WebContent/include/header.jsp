@@ -7,6 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>아나바다</title>
+<%
+	request.setCharacterEncoding("UTF-8");
+	Cookie[] ck = request.getCookies();
+%>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -17,6 +21,14 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> -->
 <script type="text/javascript">
+function removeCK(cookie_name){
+	var date = new Date();
+	date.setTime(date.getTime() + (-1 * 60 * 60 * 1000));
+	var expires = "; expires=" + date.toGMTString();
+	document.cookie = cookie_name+ "=" + "" + expires + "; path=/TeamProject"; 
+	location.reload();
+
+}
 function enterkey() {
 	if (window.event.keyCode == 13) {
 		document.charset = "utf-8"; 
