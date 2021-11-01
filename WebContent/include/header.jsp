@@ -26,7 +26,7 @@ function removeCK(cookie_name){
 	var date = new Date();
 	date.setTime(date.getTime() + (-1 * 60 * 60 * 1000));
 	var expires = "; expires=" + date.toGMTString();
-	document.cookie = cookie_name+ "=" + "" + expires + "; path=/TeamProject"; 
+	document.cookie = cookie_name+ "=" + "" + expires + "; path=/TeamPJ"; 
 	location.reload();
 }
 function enterkey() {
