@@ -228,10 +228,19 @@ public class ProductDao {
 		mapper.close();
 		return list;
 	}
+
 	public void delete_declaration(int declaration) { // 신고내역 삭제
 		SqlSession mapper = factory.openSession();
 		mapper.delete("product.delete_declaration", declaration);
 		mapper.commit();
 		mapper.close();
+	}
+
+	public Product product_done_check(int product_no) { // 신고내역 삭제
+		SqlSession mapper = factory.openSession();
+		Product vo = null;
+		vo = mapper.selectOne("product.product_done_check", product_no);
+		mapper.close();
+		return vo;
 	}
 }

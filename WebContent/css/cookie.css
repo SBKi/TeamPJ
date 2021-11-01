@@ -4,8 +4,7 @@
 	position: fixed;
 	text-align: center;
 	MIN-WIDTH: 10%;
-	max-height: 25.5em;
-	overflow: hidden;
+	MIN-HEIGHT: 10EM;
 	top: 11em;
 	background-color: white;
 	right: 2em;
@@ -13,7 +12,6 @@
 	padding: 1em;
 	border-radius: 1em;
 	box-shadow: 5px 5px 5px -1px grey;
-	top: 11em
 }
 
 .cookie_img img {
@@ -40,7 +38,7 @@
 .cookie_img i {
 	position: absolute;
 	right: 0.8em;
-}
+} 
 
 @media screen and (max-width: 768px) {
    .cookie_div {

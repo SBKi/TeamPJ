@@ -12,6 +12,7 @@
 	Cookie[] ck = request.getCookies();
 %>
 <!-- 합쳐지고 최소화된 최신 CSS -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -27,7 +28,6 @@ function removeCK(cookie_name){
 	var expires = "; expires=" + date.toGMTString();
 	document.cookie = cookie_name+ "=" + "" + expires + "; path=/TeamProject"; 
 	location.reload();
-
 }
 function enterkey() {
 	if (window.event.keyCode == 13) {

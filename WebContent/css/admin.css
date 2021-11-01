@@ -7,9 +7,9 @@
 }
 
 .admin-card h4 {
-	text-align: right;
-	color: #28a745;
-	font-weight: bold;
+    text-align: right;
+    color: #28a745;
+    font-weight: bold;
 }
 
 .admin-card-div {
@@ -45,7 +45,6 @@
 
 .a-d-t p {
 	margin-bottom: 2px;
-	border-bottom: 1 px solid #efefef;
 }
 
 .list-group-item a {
@@ -60,13 +59,11 @@
 	height: 37px;
 	margin-right: 1em;
 }
-
-.product_list_p {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 24px;
-	word-wrap: break-word;
-	display: -webkit-box;
-	-webkit-line-clamp: 1;
-	-webkit-box-orient: vertical;
+.btn-danger1 {
+	color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.delete {
+	width: 49.8%;
 }

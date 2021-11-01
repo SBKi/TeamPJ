@@ -122,7 +122,6 @@
 	</div>
 </div>
 <script>
-
 	function decal(pno){
 		let comment = prompt('신고내용을 입력해주세요.');
 		if(comment === ''){

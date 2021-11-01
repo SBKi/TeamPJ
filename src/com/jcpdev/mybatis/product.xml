@@ -224,8 +224,13 @@
 		select * from
 		declaration ;
 	</select>
+	
 	<delete id="delete_declaration">
 		delete from declaration where
 		declration_no=#{declration_no}
 	</delete>
+	
+	<select id="product_done_check" parameterType="int" resultType="Product">
+      select * from product where product_no = #{product_no} and product_status = 'ing'
+   </select>
 </mapper>

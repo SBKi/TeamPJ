@@ -54,7 +54,7 @@ function getMailList(room,id,p_no){
 			dataType : 'html', 
 			success : function(data) { 
 				$('#message').html(data);
-				$('#chatContent').scrollTop($('#chatContent')[0].scrollHeight);
+				<!-- 채팅 스크롤 하단으로 보내기 -->
 			}
 		});
 		readCheck(room,id,p_no);
@@ -85,10 +85,7 @@ function insert_mail(room){
 	var postid =  $('#postid_'+room).val();
 	var product_no =  $('#product_no_'+room).val();
 	var content =  $('#content_'+room).val();
-	if(content == ''){
-		alert('메시지를 입력해주세요.');
-		return false;
-	}
+	
 	$.ajax({
 			type : 'post', 
 			url : './view/mail/InsertMail.jsp', 
@@ -96,6 +93,7 @@ function insert_mail(room){
 			dataType : 'html', 
 			success : function() { 
 				getMailList(room,postid,product_no);
+				
 			}
 		});
 	}

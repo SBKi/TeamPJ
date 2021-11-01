@@ -231,6 +231,15 @@ public class FrontController extends HttpServlet {
 		} else if (spath.equals("/Admin_Declaration_Delete.do")) {
 			Action action = new Admin_Declaration_DeleteAction();
 			forward = action.execute(request, response);
+		} else if (spath.equals("/privacy.do")) {
+			path = "./view/privacy.jsp";
+			forward = new ActionForward(false, path);
+		} else if (spath.equals("/location.do")) {
+			path = "./view/location.jsp";
+			forward = new ActionForward(false, path);
+		} else if (spath.equals("/useAgreement.do")) {
+			path = "./view/useAgreement.jsp";
+			forward = new ActionForward(false, path);
 		}
 
 		if (forward.isRedirect()) {

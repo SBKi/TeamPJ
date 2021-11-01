@@ -16,7 +16,7 @@
 <section class="home-main-section" style="display: flex;">
 		
 	<div class="row" style="width: 90%;">
-	<h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">최신 상품</h2>
+	<h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">오늘의 상품 추천</h2>
 		<c:forEach items="${list }" var="item" varStatus="index">
 			<div class="card col-md-3 col-sm-6"
 				onclick="location.href='detail.do?pno=${item.product_no}'">
@@ -41,23 +41,27 @@
 		</div>
 		</div>
 	</div>
+	<div class="cookie_status">
+	</div>
 <div class="cookie_div">
+	<div class="cookie_status">
 	<h5>최근 본 상품</h5>
+	</div>
 	<div class="cookie">
 		<%
-         if(ck!=null){
-            for(int i=ck.length; i>0; i--){
-               if(ck[i-1].getName().indexOf("product_cookie") != -1){
-                  Product vo = ProductDao.getInstance().getOne(Integer.parseInt(ck[i-1].getValue()));
-               %>
-               <div class="cookie_img">
-                  <img src="/img/<%=vo.getProduct_img1()%>" onclick="location.href='detail.do?pno=<%=vo.getProduct_no()%>'">
-                  <a onclick="removeCK('product_cookie<%=vo.getProduct_no()%>')"><i class="bi bi-x-circle"></i></a>
-               </div>
-               <%}
-            }
-         }
-      %>
+			if(ck!=null){
+				for(Cookie c: ck){
+					if(c.getName().indexOf("product_cookie") != -1){
+						Product vo = ProductDao.getInstance().getOne(Integer.parseInt(c.getValue()));
+					%>
+					<div class="cookie_img">
+						<img src="/img/<%=vo.getProduct_img1()%>" onclick="location.href='detail.do?pno=<%=vo.getProduct_no()%>'">
+						<a onclick="removeCK('product_cookie<%=vo.getProduct_no()%>')"><i class="bi bi-x-circle"></i></a>
+					</div>
+					<%}
+				}
+			}
+		%>
 	</div>
 </div>
 </section>
