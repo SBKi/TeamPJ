@@ -6,7 +6,7 @@
 				<li><a href="index.do"><span>HOME</span></a></li>
 				<li><a href="useAgreement.do"><span>이용약관</span></a></li>
 				<li><a href="privacy.do"><span>개인정보보호방침</span></a></li>
-				<li><a href="location.do" target="_blank"><span>위치</span></a></li>
+				<li><a href="location.do"><span>위치</span></a></li>
 				<li><a href="login.do"><span>로그인</span></a></li>
 			</ul>
 		</div>

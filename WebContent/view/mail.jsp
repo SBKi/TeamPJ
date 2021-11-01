@@ -52,9 +52,9 @@ function getMailList(room,id,p_no){
 			url : './view/mail/GetMailList_Ajax.jsp',
 			data : {"room":room,"order_id":id,"p_no":p_no}, 
 			dataType : 'html', 
-			success : function(data) { 
+			success : function(data) {  
 				$('#message').html(data);
-				<!-- 채팅 스크롤 하단으로 보내기 -->
+				$("#chatContent").scrollTop($("#chatContent")[0].scrollHeight);
 			}
 		});
 		readCheck(room,id,p_no);
