@@ -1,1 +1,1 @@
-http://54.180.87.8:8080/TeamProject/index.do
+http://52.79.237.242:8080/index.do
